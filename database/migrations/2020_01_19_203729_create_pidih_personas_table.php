@@ -15,7 +15,7 @@ class CreatePidihPersonasTable extends Migration {
 	{
 		Schema::create('pidih_personas', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->string('identificacion_tipo', 300)->nullable();
 			$table->string('identificacion_codigo', 300)->nullable();
 			$table->string('nombre_completo', 600)->nullable();

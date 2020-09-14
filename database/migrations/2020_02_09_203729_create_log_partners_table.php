@@ -15,7 +15,7 @@ class CreateLogPartnersTable extends Migration
     public function up()
     {
         Schema::create('log_partners', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->bigInteger('partner_id', true);
             $table->text('request')->nullable();
             $table->text('response')->nullable();

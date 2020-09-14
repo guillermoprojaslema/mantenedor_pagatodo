@@ -15,7 +15,7 @@ class CreateQueueSettingsTable extends Migration {
 	{
 		Schema::create('queue_settings', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->bigInteger('partner_id');
 			$table->bigInteger('branch_id');
 			$table->boolean('enabled')->nullable()->default(1);

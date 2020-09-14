@@ -15,7 +15,7 @@ class CreatePidihOficinasTable extends Migration {
 	{
 		Schema::create('pidih_oficinas', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->string('nombre', 300)->nullable()->index('pidih_oficinas_nombre_idx');
             $table->integer('cupos_diarios')->nullable()->default(0);
             $table->timestampsTz()->nullable();

@@ -15,7 +15,7 @@ class CreateLogsWsTable extends Migration
     public function up()
     {
         Schema::create('logs_ws', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->text('input')->nullable();
             $table->text('output')->nullable();
             $table->string('url')->nullable();

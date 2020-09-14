@@ -15,7 +15,7 @@ class CreateContadoresTable extends Migration
     public function up()
     {
         Schema::create('contadores', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->integer('numero')->nullable();
             $table->integer('empresa_id')->nullable();
             $table->dateTime('fecha')->nullable();

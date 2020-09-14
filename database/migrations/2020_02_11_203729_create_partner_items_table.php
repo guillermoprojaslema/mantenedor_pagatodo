@@ -15,7 +15,7 @@ class CreatePartnerItemsTable extends Migration {
 	{
 		Schema::create('partner_items', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->bigInteger('partner_id');
 			$table->string('name', 300);
             $table->timestampsTz()->nullable();

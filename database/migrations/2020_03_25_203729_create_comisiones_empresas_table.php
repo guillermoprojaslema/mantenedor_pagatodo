@@ -15,7 +15,7 @@ class CreateComisionesEmpresasTable extends Migration
     public function up()
     {
         Schema::create('comisiones_empresas', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->bigInteger('empresa_id')->nullable();
             $table->bigInteger('servicio_id')->nullable();
             $table->bigInteger('tipocargo_id')->nullable();

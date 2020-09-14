@@ -15,17 +15,17 @@ class CreateEmpleadosTable extends Migration
     public function up()
     {
         Schema::create('empleados', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->string('nombre', 100);
             $table->string('cedula', 100);
             $table->string('codigo', 100)->nullable();
-            $table->bigIncrements('sucursal_id');
+            $table->bigInteger('sucursal_id');
             $table->string('usuario', 100)->nullable();
             $table->string('password', 100)->nullable();
-            $table->bigIncrements('grupo_id');
-            $table->bigIncrements('estado_id');
-            $table->bigIncrements('empresa_id')->nullable()->default(0);
-            $table->bigIncrements('cashout_empresa_id')->nullable()->default(0);
+            $table->bigInteger('grupo_id');
+            $table->bigInteger('estado_id');
+            $table->bigInteger('empresa_id')->nullable()->default(0);
+            $table->bigInteger('cashout_empresa_id')->nullable()->default(0);
             $table->string('terminal', 20)->nullable();
             $table->text('tokenId')->nullable();
             $table->boolean('es_virtual')->nullable()->default(0);

@@ -15,7 +15,7 @@ class CreateServiciosCashoutEmpresasTable extends Migration {
 	{
 		Schema::create('servicios_cashout_empresas', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->integer('servicio_id')->nullable();
 			$table->integer('cashout_empresa_id')->nullable();
             $table->timestamps()->nullable();

@@ -15,7 +15,7 @@ class CreateWebServiceMethodsGroupsTable extends Migration {
 	{
 		Schema::create('web_service_methods_groups', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->integer('method_id');
 			$table->integer('group_id');
             $table->timestampsTz()->nullable();

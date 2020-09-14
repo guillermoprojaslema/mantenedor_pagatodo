@@ -15,7 +15,7 @@ class CreateResponseMessagesTable extends Migration
     public function up()
     {
         Schema::create('response_messages', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->bigInteger('partner_id');
             $table->integer('code');
             $table->string('message', 150);

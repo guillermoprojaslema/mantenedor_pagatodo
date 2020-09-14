@@ -15,7 +15,7 @@ class CreateUmbrellapuntosTable extends Migration {
 	{
 		Schema::create('umbrellapuntos', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->integer('umbrellacliente_id')->nullable();
 			$table->integer('tipo_1')->nullable();
 			$table->integer('tipo_2')->nullable();

@@ -15,7 +15,7 @@ class CreateUmbrellaCodesTable extends Migration {
 	{
 		Schema::create('umbrella_codes', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
                 $table->string('code_id', 30)->unique('umbrella_codes_code_id_key');
 			$table->boolean('status');
 			$table->bigInteger('payment_id')->nullable();

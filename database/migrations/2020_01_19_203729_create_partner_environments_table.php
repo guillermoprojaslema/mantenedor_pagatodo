@@ -15,7 +15,7 @@ class CreatePartnerEnvironmentsTable extends Migration {
 	{
 		Schema::create('partner_environments', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->string('name', 300);
             $table->timestampsTz()->nullable();
             $table->softDeletesTz()->nullable()->useCurrent();

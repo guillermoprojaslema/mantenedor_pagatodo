@@ -15,7 +15,7 @@ class CreateLogSystemsTable extends Migration {
 	{
 		Schema::create('log_systems', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->string('message', 480)->nullable();
 			$table->integer('level')->nullable();
 			$table->string('level_name', 50)->nullable();

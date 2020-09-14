@@ -15,7 +15,7 @@ class CreateClientesbackTable extends Migration
     public function up()
     {
         Schema::create('clientesback', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->string('nombre', 200)->nullable();
             $table->string('cedula', 50)->nullable()->index('cedula_index');
             $table->string('email', 100)->nullable();

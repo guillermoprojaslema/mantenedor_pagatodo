@@ -15,7 +15,7 @@ class CreateCobrosSucursalesTable extends Migration
     public function up()
     {
         Schema::create('cobros_sucursales', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->bigInteger('cobro_id')->nullable();
             $table->bigInteger('sucursal_id')->nullable();
             $table->timestamps()->nullable();

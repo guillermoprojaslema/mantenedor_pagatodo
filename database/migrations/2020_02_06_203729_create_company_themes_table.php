@@ -15,7 +15,7 @@ class CreateCompanyThemesTable extends Migration
     public function up()
     {
         Schema::create('company_themes', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->integer('recaudadora_id')->nullable();
             $table->boolean('activo')->nullable();
             $table->string('nombre_tema', 250)->nullable();

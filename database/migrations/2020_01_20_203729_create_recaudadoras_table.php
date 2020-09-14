@@ -15,7 +15,7 @@ class CreateRecaudadorasTable extends Migration
     public function up()
     {
         Schema::create('recaudadoras', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->string('nombre', 200);
             $table->string('fono_contacto', 100)->nullable();
             $table->string('nombre_contacto', 100)->nullable();

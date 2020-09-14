@@ -15,7 +15,7 @@ class CreateSubagenciaPagosTable extends Migration
     public function up()
     {
         Schema::create('subagencia_pagos', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->integer('subagencia_id');
             $table->dateTime('fecha')->nullable();
             $table->float('monto', 10, 0)->nullable();

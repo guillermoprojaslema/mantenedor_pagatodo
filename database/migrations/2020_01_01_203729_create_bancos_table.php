@@ -15,10 +15,10 @@ class CreateBancosTable extends Migration
     public function up()
     {
         Schema::create('bancos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id('id');
             $table->string('nombre', 100)->nullable();
             $table->string('sigla', 20)->nullable();
-            $table->timestamps()->nullable();
+            $table->timestamps();
             $table->softDeletes()->nullable();
         });
     }

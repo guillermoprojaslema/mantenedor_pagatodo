@@ -15,7 +15,7 @@ class CreateCargoPorServiciosTable extends Migration
     public function up()
     {
         Schema::create('cargo_por_servicios', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->bigInteger('recaudadora_id')->nullable();
             $table->bigInteger('empresa_id')->nullable();
             $table->bigInteger('tipocargo_id')->nullable();

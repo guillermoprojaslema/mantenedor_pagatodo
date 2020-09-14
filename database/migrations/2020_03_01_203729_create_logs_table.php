@@ -15,7 +15,7 @@ class CreateLogsTable extends Migration
     public function up()
     {
         Schema::create('logs', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->integer('tipolog_id')->nullable();
             $table->integer('empleado_id')->nullable();
             $table->string('clave_asociada')->nullable();

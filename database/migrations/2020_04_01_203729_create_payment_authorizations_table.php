@@ -15,7 +15,7 @@ class CreatePaymentAuthorizationsTable extends Migration {
 	{
 		Schema::create('payment_authorizations', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->bigInteger('payment_id');
 			$table->string('authorization_number', 10);
 			$table->integer('sucursal_id');

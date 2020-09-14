@@ -15,7 +15,7 @@ class CreateIntranetlogsTable extends Migration
     public function up()
     {
         Schema::create('intranetlogs', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->bigInteger('empleado_id')->nullable();
             $table->string('origen', 300)->nullable();
             $table->string('ip', 100)->nullable();

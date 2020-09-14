@@ -15,7 +15,7 @@ class CreateRankingsTable extends Migration
     public function up()
     {
         Schema::create('rankings', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->bigInteger('empleado_id');
             $table->integer('puntos_pre')->nullable()->default(0);
             $table->dateTime('fecha_inicio')->nullable();

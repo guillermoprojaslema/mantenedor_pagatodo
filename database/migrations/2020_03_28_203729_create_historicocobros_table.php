@@ -15,7 +15,7 @@ class CreateHistoricocobrosTable extends Migration
     public function up()
     {
         Schema::create('historicocobros', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->integer('empresa_id')->nullable();
             $table->string('cliente_cedula', 100)->nullable();
             $table->string('cliente_numero', 200)->nullable();

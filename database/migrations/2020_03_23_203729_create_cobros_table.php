@@ -15,7 +15,7 @@ class CreateCobrosTable extends Migration
     public function up()
     {
         Schema::create('cobros', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->integer('empresa_id');
             $table->string('cliente_cedula', 100)->nullable();
             $table->string('cliente_numero', 200)->nullable();

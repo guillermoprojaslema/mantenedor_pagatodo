@@ -15,7 +15,7 @@ class CreateIntranetrankingsTable extends Migration {
 	{
 		Schema::create('intranetrankings', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->integer('empleado_id')->nullable();
 			$table->integer('empresa_id')->nullable();
 			$table->integer('tipo_1')->nullable();

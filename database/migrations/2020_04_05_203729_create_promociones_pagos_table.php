@@ -15,7 +15,7 @@ class CreatePromocionesPagosTable extends Migration
     public function up()
     {
         Schema::create('promociones_pagos', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->bigInteger('pago_id');
             $table->integer('promocion_id');
             $table->integer('validador')->nullable();

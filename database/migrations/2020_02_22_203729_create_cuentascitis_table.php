@@ -15,7 +15,7 @@ class CreateCuentascitisTable extends Migration
     public function up()
     {
         Schema::create('cuentascitis', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->bigInteger('cedulasciti_id')->nullable();
             $table->bigInteger('moneda_id')->nullable();
             $table->string('numero_cuenta', 50)->nullable();

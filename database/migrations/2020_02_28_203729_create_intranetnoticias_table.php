@@ -15,7 +15,7 @@ class CreateIntranetnoticiasTable extends Migration {
 	{
 		Schema::create('intranetnoticias', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->integer('empleado_id')->nullable();
 			$table->string('titulo', 80)->nullable();
 			$table->string('noticia')->nullable();

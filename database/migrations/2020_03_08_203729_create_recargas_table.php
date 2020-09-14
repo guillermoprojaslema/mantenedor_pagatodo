@@ -15,7 +15,7 @@ class CreateRecargasTable extends Migration
     public function up()
     {
         Schema::create('recargas', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->integer('empleado_id')->nullable();
             $table->integer('sucursal_id')->nullable();
             $table->integer('empresa_id')->nullable();

@@ -15,7 +15,7 @@ class CreateUmbrellaclientesTable extends Migration {
 	{
 		Schema::create('umbrellaclientes', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->string('cedula', 15)->nullable();
 			$table->string('nombre', 60)->nullable();
 			$table->string('fono', 12)->nullable();

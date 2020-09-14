@@ -15,7 +15,7 @@ class CreateCampanasTable extends Migration
     public function up()
     {
         Schema::create('campanas', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->bigInteger('estadocampana_id')->nullable();
             $table->string('nombre', 50)->nullable();
             $table->time('umbrella')->nullable()->default(0);

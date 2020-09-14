@@ -15,7 +15,7 @@ class CreateSubagenciaLogsTable extends Migration
     public function up()
     {
         Schema::create('subagencia_logs', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->integer('subagencia_id')->nullable();
             $table->dateTime('fecha')->nullable();
             $table->float('debito', 10, 0)->nullable();

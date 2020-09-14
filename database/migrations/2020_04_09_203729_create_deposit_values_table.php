@@ -15,7 +15,7 @@ class CreateDepositValuesTable extends Migration {
 	{
 		Schema::create('deposit_values', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->integer('branch_id')->index('deposit_values_branch_id_idx');
 			$table->integer('partner_id')->index('deposit_values_partner_id_idx');
 			$table->integer('setting_id')->index('deposit_values_setting_id_idx');

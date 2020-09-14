@@ -15,7 +15,7 @@ class CreateWebServiceMethodsTable extends Migration {
 	{
 		Schema::create('web_service_methods', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->string('name', 200);
 			$table->string('handler', 300);
             $table->timestampsTz()->nullable();

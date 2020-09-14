@@ -15,7 +15,7 @@ class CreateCedulasTable extends Migration
     public function up()
     {
         Schema::create('cedulas', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->bigInteger('empresa_id')->nullable();
             $table->string('servicio_id', 100)->nullable();
             $table->bigInteger('tipopago_id')->nullable();

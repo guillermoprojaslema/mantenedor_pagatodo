@@ -15,7 +15,7 @@ class CreatePagosTable extends Migration {
 	{
 		Schema::create('pagos', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->bigInteger('cobro_id')->index('pagos_cobro_id_idx');
 			$table->integer('empleado_id')->index('pagos_empleado_id_idx');
 			$table->integer('sucursal_id')->nullable()->index('pagos_sucursal_id_idx');

@@ -15,7 +15,7 @@ class CreateIdentificadorcobrosTable extends Migration {
 	{
 		Schema::create('identificadorcobros', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->string('nombre', 20)->nullable();
             $table->timestamps()->nullable();
             $table->softDeletes()->nullable();

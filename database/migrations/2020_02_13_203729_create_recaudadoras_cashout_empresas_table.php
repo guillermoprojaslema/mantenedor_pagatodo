@@ -15,7 +15,7 @@ class CreateRecaudadorasCashoutEmpresasTable extends Migration {
 	{
 		Schema::create('recaudadoras_cashout_empresas', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->integer('recaudadora_id');
 			$table->integer('cashout_empresa_id');
             $table->timestamps()->nullable();

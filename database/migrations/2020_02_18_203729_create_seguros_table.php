@@ -15,7 +15,7 @@ class CreateSegurosTable extends Migration {
 	{
 		Schema::create('seguros', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->integer('empresa_id')->nullable();
 			$table->string('nombre', 50)->nullable();
             $table->timestamps()->nullable();

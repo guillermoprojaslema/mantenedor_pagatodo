@@ -15,7 +15,7 @@ class CreateCitasTable extends Migration
     public function up()
     {
         Schema::create('citas', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->bigInteger('oficina_id');
             $table->string('cliente_cedula', 20);
             $table->date('fecha_asignada');

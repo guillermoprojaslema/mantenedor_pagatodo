@@ -15,7 +15,7 @@ class CreateIntranetincentivosTable extends Migration {
 	{
 		Schema::create('intranetincentivos', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->integer('empleado_id');
 			$table->integer('total_ventas')->nullable();
 			$table->integer('fecha_pago')->nullable();

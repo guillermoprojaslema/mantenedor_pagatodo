@@ -15,7 +15,7 @@ class CreateOficinasTable extends Migration {
 	{
 		Schema::create('oficinas', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->integer('empresa_id');
 			$table->string('nombre', 50);
 			$table->integer('cantidad')->nullable();

@@ -15,7 +15,7 @@ class CreateTipocargosTable extends Migration {
 	{
 		Schema::create('tipocargos', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->string('nombre', 100)->nullable();
             $table->timestamps()->nullable();
             $table->softDeletes()->nullable();

@@ -15,7 +15,7 @@ class CreateSubagenciasTable extends Migration
     public function up()
     {
         Schema::create('subagencias', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->integer('sucursal_id');
             $table->float('saldo_actual', 10, 0)->nullable();
             $table->float('saldo_total', 10, 0)->nullable();

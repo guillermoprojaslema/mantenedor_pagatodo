@@ -15,7 +15,7 @@ class CreateCronesTable extends Migration
     public function up()
     {
         Schema::create('crones', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->string('nombre', 50)->nullable();
             $table->string('comentario', 200)->nullable();
             $table->dateTime('fecha_inicio')->nullable();

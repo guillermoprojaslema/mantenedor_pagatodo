@@ -15,7 +15,7 @@ class CreateNullifyPaymentRequestsTable extends Migration {
 	{
 		Schema::create('nullify_payment_requests', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->bigInteger('payment_id', true);
 			$table->dateTime('request_date')->nullable();
             $table->timestamps()->nullable();

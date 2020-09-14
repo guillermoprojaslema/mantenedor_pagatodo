@@ -15,7 +15,7 @@ class CreateIdentificadorcobrosEmpresasTable extends Migration {
 	{
 		Schema::create('identificadorcobros_empresas', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->bigInteger('identificadorcobro_id');
 			$table->bigInteger('empresa_id');
             $table->timestamps()->nullable();

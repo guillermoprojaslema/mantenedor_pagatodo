@@ -15,7 +15,7 @@ class CreateMediopagosEmpresasTable extends Migration {
 	{
 		Schema::create('mediopagos_empresas', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->integer('empresa_id');
 			$table->integer('mediopago_id');
 			$table->timestamps()->nullable();

@@ -15,7 +15,7 @@ class CreateComisionesRecaudadorasTable extends Migration
     public function up()
     {
         Schema::create('comisiones_recaudadoras', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->integer('empresa_id')->nullable();
             $table->integer('servicio_id')->nullable();
             $table->integer('recaudadora_id')->nullable();

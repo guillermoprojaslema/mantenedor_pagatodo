@@ -15,7 +15,7 @@ class CreateUmbrellarankingsTable extends Migration
     public function up()
     {
         Schema::create('umbrellarankings', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->bigInteger('campana_id')->nullable();
             $table->dateTime('fecha_inicio')->nullable();
             $table->dateTime('fecha_termino')->nullable();

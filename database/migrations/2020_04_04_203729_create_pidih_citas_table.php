@@ -15,7 +15,7 @@ class CreatePidihCitasTable extends Migration {
 	{
 		Schema::create('pidih_citas', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->bigInteger('persona_id')->index('pidih_citas_persona_id_idx');
 			$table->bigInteger('pago_id')->index('pidih_citas_pago_id_idx');
 			$table->date('fecha')->index('pidih_citas_fecha_idx');

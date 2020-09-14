@@ -15,7 +15,7 @@ class CreateCashoutEmpresasTable extends Migration
     public function up()
     {
         Schema::create('cashout_empresas', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->string('nombre', 100)->nullable();
             $table->string('password', 40)->nullable();
             $table->timestamps()->nullable();

@@ -15,7 +15,7 @@ class CreateCashoutLogsTable extends Migration
     public function up()
     {
         Schema::create('cashout_logs', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->bigInteger('tipolog_id');
             $table->bigInteger('empleado_id');
             $table->bigInteger('clave_asociada');

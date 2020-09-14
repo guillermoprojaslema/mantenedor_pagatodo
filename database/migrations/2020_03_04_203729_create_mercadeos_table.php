@@ -15,7 +15,7 @@ class CreateMercadeosTable extends Migration {
 	{
 		Schema::create('mercadeos', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->bigInteger('recaudadora_id')->nullable();
 			$table->bigInteger('sucursal_id')->nullable();
 			$table->bigInteger('campana_id')->nullable();

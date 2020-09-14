@@ -15,7 +15,7 @@ class CreateMediopagosSucursalesTable extends Migration {
 	{
 		Schema::create('mediopagos_sucursales', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->integer('sucursal_id')->nullable();
 			$table->integer('mediopago_id')->nullable();
             $table->timestamps()->nullable();

@@ -19,7 +19,7 @@ class CreateNoticiasTable extends Migration {
 			$table->text('bajada')->nullable();
 			$table->string('imagen', 250)->nullable();
 			$table->text('texto')->nullable();
-            $table->bigIncrements();
+            $table->id();
             $table->bigInteger('campana_id')->nullable();
             $table->timestamps()->nullable();
             $table->softDeletes()->nullable();

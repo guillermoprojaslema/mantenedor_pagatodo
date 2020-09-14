@@ -15,7 +15,7 @@ class CreateEstadopagosTable extends Migration {
 	{
 		Schema::create('estadopagos', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->string('nombre', 100);
 		});
 	}

@@ -15,7 +15,7 @@ class CreateCashoutPagosTable extends Migration
     public function up()
     {
         Schema::create('cashout_pagos', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->bigInteger('cashout_cobro_id');
             $table->bigInteger('empleado_id');
             $table->bigInteger('sucursal_id');

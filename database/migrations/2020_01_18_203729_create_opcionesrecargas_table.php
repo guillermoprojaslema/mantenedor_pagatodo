@@ -15,7 +15,7 @@ class CreateOpcionesrecargasTable extends Migration {
 	{
 		Schema::create('opcionesrecargas', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->float('monto', 10, 0)->nullable();
 			$table->integer('orden')->nullable();
             $table->timestamps()->nullable();

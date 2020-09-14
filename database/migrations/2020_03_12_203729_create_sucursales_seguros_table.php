@@ -15,7 +15,7 @@ class CreateSucursalesSegurosTable extends Migration {
 	{
 		Schema::create('sucursales_seguros', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->integer('sucursal_id')->nullable();
 			$table->integer('seguro_id')->nullable();
             $table->timestamps()->nullable();

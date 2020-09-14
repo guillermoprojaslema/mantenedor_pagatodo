@@ -15,7 +15,7 @@ class CreateLogWsExtTable extends Migration
     public function up()
     {
         Schema::create('log_ws_ext', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->integer('empresa_id')->nullable();
             $table->bigInteger('entidad_id')->nullable();
             $table->string('entidad')->nullable();

@@ -15,7 +15,7 @@ class CreateLogWebservicesTable extends Migration {
 	{
 		Schema::create('log_webservices', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->string('ip_address')->nullable();
 			$table->text('request_headers')->nullable();
 			$table->string('request_url', 500)->nullable();

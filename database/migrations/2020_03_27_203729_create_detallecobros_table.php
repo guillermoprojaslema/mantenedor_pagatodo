@@ -15,7 +15,7 @@ class CreateDetallecobrosTable extends Migration {
 	{
 		Schema::create('detallecobros', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->string('nombre', 100)->nullable();
 			$table->float('valor', 10, 0)->nullable();
 			$table->bigInteger('cobro_id')->nullable();

@@ -15,7 +15,7 @@ class CreateCedulascitisTable extends Migration
     public function up()
     {
         Schema::create('cedulascitis', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->bigInteger('empresa_id')->nullable();
             $table->string('cliente_cedula_citi', 50)->nullable();
             $table->timestamps()->nullable();

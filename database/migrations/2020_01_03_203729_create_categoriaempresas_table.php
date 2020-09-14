@@ -15,7 +15,7 @@ class CreateCategoriaempresasTable extends Migration
     public function up()
     {
         Schema::create('categoriaempresas', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->string('nombre', 100);
             $table->softDeletes()->nullable();
             $table->softDeletes()->nullable();

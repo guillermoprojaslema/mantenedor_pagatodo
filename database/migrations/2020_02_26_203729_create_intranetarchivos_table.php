@@ -15,7 +15,7 @@ class CreateIntranetarchivosTable extends Migration {
 	{
 		Schema::create('intranetarchivos', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->bigInteger('empleado_id')->nullable();
 			$table->string('nombre', 100)->nullable();
 			$table->string('tipo', 100)->nullable();

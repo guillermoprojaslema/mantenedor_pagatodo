@@ -15,7 +15,7 @@ class CreateTestSuiteEstadopagosTable extends Migration {
 	{
 		Schema::create('test_suite_estadopagos', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->string('nombre', 100);
             $table->timestamps()->nullable();
             $table->softDeletes()->nullable();
