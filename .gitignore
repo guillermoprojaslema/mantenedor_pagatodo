@@ -218,3 +218,5 @@ tools/*
 /tmp/*
 
 # End of https://www.toptal.com/developers/gitignore/api/cake,cakephp,cakephp2,cakephp3
+
+.idea
