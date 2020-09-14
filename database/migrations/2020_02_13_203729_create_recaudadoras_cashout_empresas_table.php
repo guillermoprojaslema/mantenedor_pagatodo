@@ -18,8 +18,8 @@ class CreateRecaudadorasCashoutEmpresasTable extends Migration {
 			$table->id();
 			$table->integer('recaudadora_id');
 			$table->integer('cashout_empresa_id');
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

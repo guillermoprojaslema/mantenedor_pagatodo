@@ -15,11 +15,11 @@ class CreateEmployeePartnersTable extends Migration {
 	{
 		Schema::create('employee_partners', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->bigInteger('partner_id')->index('employee_partners_partner_id_idx');
 			$table->bigInteger('employee_id')->index('employee_partners_employee_id_idx');
-			$table->timestampsTz()->nullable()->useCurrent();
-			$table->softDeletesTz()->nullable()->useCurrent();
+			$table->timestampsTz();
+			$table->softDeletesTz()->nullable();
 		});
 	}
 

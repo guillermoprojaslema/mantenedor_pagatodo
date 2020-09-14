@@ -42,8 +42,8 @@ class CreatePagosTable extends Migration {
 			$table->float('tiempo_respuesta_ws', 10, 0)->nullable();
 			$table->string('error', 400)->nullable();
 			$table->bigInteger('parent_id')->nullable()->index('index_parent_id');
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

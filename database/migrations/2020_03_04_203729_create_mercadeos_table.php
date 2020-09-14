@@ -23,8 +23,8 @@ class CreateMercadeosTable extends Migration {
 			$table->integer('meta_recarga')->nullable();
 			$table->dateTime('fecha_desde')->nullable();
 			$table->dateTime('fecha_hasta')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 
 		});
 	}

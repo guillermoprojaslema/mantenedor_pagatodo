@@ -21,8 +21,8 @@ class CreateNoticiasTable extends Migration {
 			$table->text('texto')->nullable();
             $table->id();
             $table->bigInteger('campana_id')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
 	}
 

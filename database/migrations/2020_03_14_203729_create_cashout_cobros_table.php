@@ -25,8 +25,8 @@ class CreateCashoutCobrosTable extends Migration
             $table->integer('estado')->nullable()->default(1);
             $table->bigInteger('sucursal_id')->nullable();
             $table->char('descripcion', 50)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

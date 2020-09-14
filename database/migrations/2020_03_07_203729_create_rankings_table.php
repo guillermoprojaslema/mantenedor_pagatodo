@@ -22,8 +22,8 @@ class CreateRankingsTable extends Migration
             $table->dateTime('fecha_termino')->nullable();
             $table->integer('puntos_post')->nullable();
             $table->string('semana', 50)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -17,8 +17,8 @@ class CreateCategoriaempresasTable extends Migration
         Schema::create('categoriaempresas', function (Blueprint $table) {
             $table->id();
             $table->string('nombre', 100);
-            $table->softDeletes()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

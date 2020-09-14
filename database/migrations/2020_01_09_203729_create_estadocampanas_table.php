@@ -15,10 +15,10 @@ class CreateEstadocampanasTable extends Migration
     public function up()
     {
         Schema::create('estadocampanas', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->string('nombre', 50)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 
         });
     }

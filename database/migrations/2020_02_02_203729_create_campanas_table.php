@@ -19,8 +19,8 @@ class CreateCampanasTable extends Migration
             $table->bigInteger('estadocampana_id')->nullable();
             $table->string('nombre', 50)->nullable();
             $table->time('umbrella')->nullable()->default(0);
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 
         });
     }

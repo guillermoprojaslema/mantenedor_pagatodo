@@ -17,8 +17,8 @@ class CreateIdentificadorcobrosTable extends Migration {
 		{
 			$table->id();
 			$table->string('nombre', 20)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

@@ -42,8 +42,8 @@ class CreatePagosbkTable extends Migration
             $table->float('tiempo_respuesta_ws', 10, 0)->nullable();
             $table->string('error', 400)->nullable();
             $table->bigInteger('parent_id')->nullable()->index('pagosbk_parent_id_idx');
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -21,8 +21,8 @@ class CreateIntranetlogsTable extends Migration
             $table->string('ip', 100)->nullable();
             $table->bigInteger('sucursal_id')->nullable();
             $table->date('fecha')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
 
     }

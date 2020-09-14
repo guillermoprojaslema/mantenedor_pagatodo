@@ -19,8 +19,8 @@ class CreateCuentascitisTable extends Migration
             $table->bigInteger('cedulasciti_id')->nullable();
             $table->bigInteger('moneda_id')->nullable();
             $table->string('numero_cuenta', 50)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

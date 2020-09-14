@@ -29,8 +29,8 @@ class CreateEmpleadosTable extends Migration
             $table->string('terminal', 20)->nullable();
             $table->text('tokenId')->nullable();
             $table->boolean('es_virtual')->nullable()->default(0);
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

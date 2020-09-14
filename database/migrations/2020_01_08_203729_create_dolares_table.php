@@ -18,8 +18,8 @@ class CreateDolaresTable extends Migration
             $table->id();
             $table->float('valor', 10, 0);
             $table->boolean('termino')->nullable()->default(0);
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 
         });
     }

@@ -19,8 +19,8 @@ class CreateMediopagosTable extends Migration {
 			$table->integer('tipopago_id');
 			$table->string('nombre', 100);
 			$table->string('payment_code', 100)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

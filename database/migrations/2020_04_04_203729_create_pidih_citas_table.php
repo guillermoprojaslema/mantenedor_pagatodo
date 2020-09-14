@@ -19,9 +19,9 @@ class CreatePidihCitasTable extends Migration {
 			$table->bigInteger('persona_id')->index('pidih_citas_persona_id_idx');
 			$table->bigInteger('pago_id')->index('pidih_citas_pago_id_idx');
 			$table->date('fecha')->index('pidih_citas_fecha_idx');
-			$table->integer('oficina_id')->index('pidih_citas_oficina_id_idx');
-			$table->timestampsTz()->index('pidih_citas_created_idx')->nullable();
-            $table->softDeletesTz()->nullable();
+			$table->bigInteger('oficina_id')->index('pidih_citas_oficina_id_idx');
+			$table->timestampsTz();
+            $table->softDeletesTz();
 		});
 	}
 

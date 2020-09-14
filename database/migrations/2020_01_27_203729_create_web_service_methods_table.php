@@ -18,8 +18,8 @@ class CreateWebServiceMethodsTable extends Migration {
 			$table->id();
 			$table->string('name', 200);
 			$table->string('handler', 300);
-            $table->timestampsTz()->nullable();
-            $table->softDeletesTz()->nullable();
+            $table->timestampsTz();
+            $table->softDeletesTz();
 		});
 	}
 

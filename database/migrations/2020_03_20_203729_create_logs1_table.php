@@ -22,8 +22,8 @@ class CreateLogs1Table extends Migration
             $table->string('valor_asociado')->nullable();
             $table->string('detalle', 600)->nullable();
             $table->float('monto', 10, 0)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

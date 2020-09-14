@@ -18,8 +18,8 @@ class CreateMediopagosEmpresasTable extends Migration {
 			$table->id();
 			$table->integer('empresa_id');
 			$table->integer('mediopago_id');
-			$table->timestamps()->nullable();
-			$table->softDeletes()->nullable();
+			$table->timestamps();
+			$table->softDeletes();
 		});
 	}
 

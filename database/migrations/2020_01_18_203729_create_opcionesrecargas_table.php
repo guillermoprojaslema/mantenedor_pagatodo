@@ -18,8 +18,8 @@ class CreateOpcionesrecargasTable extends Migration {
 			$table->id();
 			$table->float('monto', 10, 0)->nullable();
 			$table->integer('orden')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

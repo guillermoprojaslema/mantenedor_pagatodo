@@ -22,7 +22,7 @@ class CreateLogSystemsTable extends Migration {
 			$table->string('channel', 480)->nullable();
 			$table->text('context')->nullable();
 			$table->text('extra')->nullable();
-            $table->timestampsTz()->nullable()->useCurrent();
+            $table->timestampsTz();
         });
 	}
 

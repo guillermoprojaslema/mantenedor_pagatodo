@@ -18,8 +18,8 @@ class CreateRecaudadorasServiciosTable extends Migration {
 			$table->id();
 			$table->integer('recaudadora_id')->nullable();
 			$table->integer('servicio_id')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

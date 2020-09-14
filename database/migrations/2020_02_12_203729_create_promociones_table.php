@@ -25,8 +25,8 @@ class CreatePromocionesTable extends Migration {
 			$table->integer('contador_premios')->nullable();
 			$table->text('descripcion')->nullable();
 			$table->float('monto', 10, 0)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 
         });
 	}

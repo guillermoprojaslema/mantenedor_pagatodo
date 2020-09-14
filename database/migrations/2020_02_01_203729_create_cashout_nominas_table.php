@@ -24,8 +24,8 @@ class CreateCashoutNominasTable extends Migration
             $table->text('observacion')->nullable();
             $table->text('extras')->nullable();
             $table->text('descripcion')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

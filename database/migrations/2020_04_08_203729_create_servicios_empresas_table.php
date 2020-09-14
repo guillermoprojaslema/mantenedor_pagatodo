@@ -18,8 +18,8 @@ class CreateServiciosEmpresasTable extends Migration {
 			$table->id();
 			$table->integer('servicio_id')->nullable();
 			$table->integer('empresa_id')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

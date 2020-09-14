@@ -19,8 +19,8 @@ class CreateResponseMessagesWebserviceTable extends Migration {
 			$table->bigInteger('partner_id')->nullable();
 			$table->integer('code')->nullable();
 			$table->string('message', 150)->nullable();
-            $table->timestampsTz()->nullable();
-            $table->softDeletesTz()->nullable();
+            $table->timestampsTz();
+            $table->softDeletesTz();
 		});
 	}
 

@@ -20,8 +20,8 @@ class CreatePromocionesPagosTable extends Migration
             $table->integer('promocion_id');
             $table->integer('validador')->nullable();
             $table->string('telefono', 100)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

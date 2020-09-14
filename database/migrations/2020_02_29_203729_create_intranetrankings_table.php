@@ -24,8 +24,8 @@ class CreateIntranetrankingsTable extends Migration {
 			$table->date('fecha_inicio')->nullable();
 			$table->date('fecha_termino')->nullable();
 			$table->boolean('semana')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

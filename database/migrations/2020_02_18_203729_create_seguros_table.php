@@ -18,8 +18,8 @@ class CreateSegurosTable extends Migration {
 			$table->id();
 			$table->integer('empresa_id')->nullable();
 			$table->string('nombre', 50)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

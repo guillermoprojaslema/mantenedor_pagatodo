@@ -29,8 +29,8 @@ class CreateCashoutPagosTable extends Migration
             $table->string('cliente_nombre', 100)->nullable();
             $table->string('tipo', 250)->nullable();
             $table->bigInteger('cashout_nomina_id')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

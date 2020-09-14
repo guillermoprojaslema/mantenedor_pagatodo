@@ -21,8 +21,8 @@ class CreateCashoutLogsTable extends Migration
             $table->bigInteger('clave_asociada');
             $table->text('detalle')->nullable();
             $table->float('monto', 10, 0)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -20,8 +20,8 @@ class CreateCronesTable extends Migration
             $table->string('comentario', 200)->nullable();
             $table->dateTime('fecha_inicio')->nullable();
             $table->dateTime('fecha_termino')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

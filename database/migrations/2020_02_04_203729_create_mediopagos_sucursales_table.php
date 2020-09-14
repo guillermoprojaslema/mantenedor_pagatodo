@@ -18,8 +18,8 @@ class CreateMediopagosSucursalesTable extends Migration {
 			$table->id();
 			$table->integer('sucursal_id')->nullable();
 			$table->integer('mediopago_id')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

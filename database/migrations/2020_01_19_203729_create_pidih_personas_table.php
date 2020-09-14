@@ -26,8 +26,8 @@ class CreatePidihPersonasTable extends Migration {
 			$table->string('distrito', 400)->nullable();
 			$table->date('fecha_nacimiento')->nullable();
             $table->string('mntn', 50)->nullable();
-            $table->timestampsTz()->nullable();
-            $table->softDeletesTz()->nullable();
+            $table->timestampsTz();
+            $table->softDeletesTz();
         });
 	}
 

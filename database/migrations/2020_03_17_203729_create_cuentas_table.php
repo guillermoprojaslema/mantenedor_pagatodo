@@ -22,8 +22,8 @@ class CreateCuentasTable extends Migration
             $table->bigInteger('tipobusqueda')->nullable();
             $table->string('fecha_notificacion', 4)->nullable();
             $table->bigInteger('empleado_id')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

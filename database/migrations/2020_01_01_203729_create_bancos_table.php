@@ -19,7 +19,7 @@ class CreateBancosTable extends Migration
             $table->string('nombre', 100)->nullable();
             $table->string('sigla', 20)->nullable();
             $table->timestamps();
-            $table->softDeletes()->nullable();
+            $table->softDeletes();
         });
     }
 

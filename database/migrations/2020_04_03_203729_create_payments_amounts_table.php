@@ -20,8 +20,8 @@ class CreatePaymentsAmountsTable extends Migration {
 			$table->bigInteger('money_id');
 			$table->bigInteger('payment_method_id');
 			$table->float('max_amount', 10, 0)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

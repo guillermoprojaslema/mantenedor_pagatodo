@@ -19,8 +19,8 @@ class CreateOficinasTable extends Migration {
 			$table->integer('empresa_id');
 			$table->string('nombre', 50);
 			$table->integer('cantidad')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 
 		});
 	}

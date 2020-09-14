@@ -20,8 +20,8 @@ class CreateDepositValuesTable extends Migration {
 			$table->integer('partner_id')->index('deposit_values_partner_id_idx');
 			$table->integer('setting_id')->index('deposit_values_setting_id_idx');
 			$table->boolean('just_virtual_employees')->default(0);
-            $table->timestampsTz()->nullable();
-            $table->softDeletesTz()->nullable();
+            $table->timestampsTz();
+            $table->softDeletesTz();
 		});
 	}
 

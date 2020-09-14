@@ -21,8 +21,8 @@ class CreateCargoPorServiciosTable extends Migration
             $table->bigInteger('tipocargo_id')->nullable();
             $table->float('monto', 10, 0)->nullable();
             $table->bigInteger('cashout_empresa_id')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

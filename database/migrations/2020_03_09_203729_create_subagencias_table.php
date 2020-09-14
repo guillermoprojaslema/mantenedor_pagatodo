@@ -20,8 +20,8 @@ class CreateSubagenciasTable extends Migration
             $table->float('saldo_actual', 10, 0)->nullable();
             $table->float('saldo_total', 10, 0)->nullable();
             $table->boolean('activable')->nullable()->default(1);
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -18,8 +18,8 @@ class CreateIdentificadorcobrosEmpresasTable extends Migration {
 			$table->id();
 			$table->bigInteger('identificadorcobro_id');
 			$table->bigInteger('empresa_id');
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

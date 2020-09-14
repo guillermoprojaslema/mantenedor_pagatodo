@@ -18,8 +18,8 @@ class CreateWebServiceMethodsGroupsTable extends Migration {
 			$table->id();
 			$table->integer('method_id');
 			$table->integer('group_id');
-            $table->timestampsTz()->nullable();
-            $table->softDeletesTz()->nullable();
+            $table->timestampsTz();
+            $table->softDeletesTz();
 		});
 	}
 

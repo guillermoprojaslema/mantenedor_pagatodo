@@ -20,8 +20,8 @@ class CreateClientes2Table extends Migration
             $table->string('cedula', 50)->nullable();
             $table->string('email', 100)->nullable();
             $table->string('celular', 30)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

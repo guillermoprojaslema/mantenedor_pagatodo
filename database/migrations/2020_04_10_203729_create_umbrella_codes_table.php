@@ -19,8 +19,8 @@ class CreateUmbrellaCodesTable extends Migration {
                 $table->string('code_id', 30)->unique('umbrella_codes_code_id_key');
 			$table->boolean('status');
 			$table->bigInteger('payment_id')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

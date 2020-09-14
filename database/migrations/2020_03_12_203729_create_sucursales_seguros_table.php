@@ -18,8 +18,8 @@ class CreateSucursalesSegurosTable extends Migration {
 			$table->id();
 			$table->integer('sucursal_id')->nullable();
 			$table->integer('seguro_id')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

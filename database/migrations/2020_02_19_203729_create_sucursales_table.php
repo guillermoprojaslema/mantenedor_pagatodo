@@ -35,8 +35,8 @@ class CreateSucursalesTable extends Migration {
 			$table->boolean('acepta_dolar')->nullable()->default(0);
 			$table->string('id_gp', 100)->nullable();
 			$table->boolean('activo')->nullable()->default(1);
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

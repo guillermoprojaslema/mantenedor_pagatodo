@@ -19,8 +19,8 @@ class CreatePartnerValuesTable extends Migration {
 			$table->bigInteger('item_id')->nullable();
 			$table->integer('environment_id')->nullable();
 			$table->text('value')->nullable();
-            $table->timestampsTz()->nullable()->useCurrent();
-            $table->softDeletesTz()->nullable();
+            $table->timestampsTz();
+            $table->softDeletesTz();
 		});
 	}
 

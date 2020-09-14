@@ -29,8 +29,8 @@ class CreateRecargasTable extends Migration
             $table->string('numero_recarga', 50)->nullable();
             $table->bigInteger('extras')->nullable();
             $table->integer('moneda_id')->nullable()->default(1);
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

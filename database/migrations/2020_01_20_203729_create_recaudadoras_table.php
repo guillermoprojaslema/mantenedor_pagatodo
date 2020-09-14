@@ -21,8 +21,8 @@ class CreateRecaudadorasTable extends Migration
             $table->string('nombre_contacto', 100)->nullable();
             $table->string('numero', 100)->nullable();
             $table->string('dominio', 50)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

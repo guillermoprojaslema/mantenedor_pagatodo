@@ -32,8 +32,8 @@ class CreateHistoricocobrosTable extends Migration
             $table->text('extras')->nullable();
             $table->string('datos_visa', 300)->nullable();
             $table->bigInteger('parent_id')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

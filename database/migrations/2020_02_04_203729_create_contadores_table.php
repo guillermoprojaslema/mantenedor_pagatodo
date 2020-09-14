@@ -19,8 +19,8 @@ class CreateContadoresTable extends Migration
             $table->integer('numero')->nullable();
             $table->integer('empresa_id')->nullable();
             $table->dateTime('fecha')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

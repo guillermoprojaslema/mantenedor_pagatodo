@@ -22,8 +22,8 @@ class CreateIntranetarchivosTable extends Migration {
 			$table->integer('tamano')->nullable();
 			$table->string('descripcion', 200)->nullable();
             $table->string('ext', 10)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
 	}
 

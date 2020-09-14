@@ -20,8 +20,8 @@ class CreateCedulasTable extends Migration
             $table->string('servicio_id', 100)->nullable();
             $table->bigInteger('tipopago_id')->nullable();
             $table->string('cedula', 100);
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

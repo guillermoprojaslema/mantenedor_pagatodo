@@ -19,7 +19,7 @@ class CreateCobrosTable extends Migration
             $table->integer('empresa_id');
             $table->string('cliente_cedula', 100)->nullable();
             $table->string('cliente_numero', 200)->nullable();
-            $table->bigInteger('servicio_id', 100)->index('cobros_servicio_id_idx');
+            $table->bigInteger('servicio_id')->index('cobros_servicio_id_idx');
             $table->date('fecha_emision')->nullable();
             $table->date('fecha_vencimiento')->nullable();
             $table->float('valor_minimo', 10, 0)->nullable();
@@ -29,13 +29,13 @@ class CreateCobrosTable extends Migration
             $table->string('numero_boleta_factura', 200)->nullable();
             $table->string('cliente_nombre', 200)->nullable();
             $table->text('extras')->nullable();
-            $table->bigIntegen('moneda_id')->nullable()->default(1);
+            $table->bigInteger('moneda_id')->nullable()->default(1);
             $table->string('validador', 200)->nullable();
             $table->string('datos_visa', 300)->nullable();
             $table->bigInteger('parent_id')->nullable();
             $table->boolean('obligatoria')->nullable()->default(1);
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

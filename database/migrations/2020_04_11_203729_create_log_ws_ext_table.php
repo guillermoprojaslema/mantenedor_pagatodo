@@ -22,7 +22,7 @@ class CreateLogWsExtTable extends Migration
             $table->text('input')->nullable();
             $table->text('output')->nullable();
             $table->text('payload')->nullable();
-            $table->timestampsTz()->nullable();
+            $table->timestampsTz();
 
         });
     }

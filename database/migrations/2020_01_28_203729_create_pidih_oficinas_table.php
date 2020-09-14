@@ -18,8 +18,8 @@ class CreatePidihOficinasTable extends Migration {
 			$table->id();
 			$table->string('nombre', 300)->nullable()->index('pidih_oficinas_nombre_idx');
             $table->integer('cupos_diarios')->nullable()->default(0);
-            $table->timestampsTz()->nullable();
-            $table->softDeletesTz()->nullable();
+            $table->timestampsTz();
+            $table->softDeletesTz();
         });
 	}
 

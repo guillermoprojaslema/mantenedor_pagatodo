@@ -19,8 +19,8 @@ class CreateDetallecobrosTable extends Migration {
 			$table->string('nombre', 100)->nullable();
 			$table->float('valor', 10, 0)->nullable();
 			$table->bigInteger('cobro_id')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

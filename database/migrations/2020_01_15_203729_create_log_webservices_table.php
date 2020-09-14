@@ -24,7 +24,8 @@ class CreateLogWebservicesTable extends Migration {
 			$table->smallInteger('response_status_code')->nullable();
 			$table->text('request_body')->nullable();
 			$table->text('response_body')->nullable();
-            $table->timestampsTz()->nullable()->useCurrent();
+            $table->timestampsTz();
+            $table->softDeletesTz();
 
         });
 	}

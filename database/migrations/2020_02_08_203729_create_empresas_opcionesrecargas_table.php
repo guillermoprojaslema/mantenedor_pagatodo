@@ -15,11 +15,11 @@ class CreateEmpresasOpcionesrecargasTable extends Migration {
 	{
 		Schema::create('empresas_opcionesrecargas', function(Blueprint $table)
 		{
-			$table->bigIncrements();
+			$table->id();
 			$table->bigInteger('empresa_id')->nullable();
 			$table->bigInteger('opcionesrecarga_id')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

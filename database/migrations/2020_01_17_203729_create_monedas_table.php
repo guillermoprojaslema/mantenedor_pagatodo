@@ -17,8 +17,8 @@ class CreateMonedasTable extends Migration {
 		{
 			$table->id();
 			$table->string('nombre', 100);
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

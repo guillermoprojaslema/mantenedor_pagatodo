@@ -26,8 +26,8 @@ class CreateUmbrellapuntosTable extends Migration {
 			$table->date('fecha_termino')->nullable();
 			$table->boolean('estado')->nullable()->default(1);
 			$table->integer('tipo_6')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

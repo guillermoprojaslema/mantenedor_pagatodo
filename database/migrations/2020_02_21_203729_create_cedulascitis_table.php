@@ -18,8 +18,8 @@ class CreateCedulascitisTable extends Migration
             $table->id();
             $table->bigInteger('empresa_id')->nullable();
             $table->string('cliente_cedula_citi', 50)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -19,8 +19,8 @@ class CreateCompanyThemesTable extends Migration
             $table->integer('recaudadora_id')->nullable();
             $table->boolean('activo')->nullable();
             $table->string('nombre_tema', 250)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

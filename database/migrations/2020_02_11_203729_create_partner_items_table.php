@@ -18,8 +18,8 @@ class CreatePartnerItemsTable extends Migration {
 			$table->id();
 			$table->bigInteger('partner_id');
 			$table->string('name', 300);
-            $table->timestampsTz()->nullable();
-            $table->softDeletesTz()->nullable();
+            $table->timestampsTz();
+            $table->softDeletesTz();
 		});
 	}
 

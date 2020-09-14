@@ -22,8 +22,8 @@ class CreateUmbrellaclientesTable extends Migration {
 			$table->integer('puntos')->nullable();
 			$table->date('periodo')->nullable();
 			$table->boolean('estado')->nullable()->default(1);
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 			
 		});
 	}

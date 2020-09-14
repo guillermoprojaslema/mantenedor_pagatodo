@@ -27,8 +27,8 @@ class CreateSubagenciaPagosTable extends Migration
             $table->string('cuenta', 80)->nullable();
             $table->boolean('valija')->nullable();
             $table->boolean('reintegracion')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

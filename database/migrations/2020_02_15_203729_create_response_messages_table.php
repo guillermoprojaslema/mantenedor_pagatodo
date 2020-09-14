@@ -19,8 +19,8 @@ class CreateResponseMessagesTable extends Migration
             $table->bigInteger('partner_id');
             $table->integer('code');
             $table->string('message', 150);
-            $table->timestampsTz()->nullable()->useCurrent();
-            $table->softDeletesTz()->nullable();
+            $table->timestampsTz();
+            $table->softDeletesTz();
         });
     }
 

@@ -19,8 +19,8 @@ class CreatePaymentAuthorizationsTable extends Migration {
 			$table->bigInteger('payment_id');
 			$table->string('authorization_number', 10);
 			$table->integer('sucursal_id');
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

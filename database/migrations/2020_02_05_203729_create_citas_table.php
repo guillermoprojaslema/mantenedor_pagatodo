@@ -23,8 +23,8 @@ class CreateCitasTable extends Migration
             $table->string('apellido_cliente', 30)->nullable();
             $table->string('fecha_nacimiento', 10)->nullable();
             $table->boolean('estado')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

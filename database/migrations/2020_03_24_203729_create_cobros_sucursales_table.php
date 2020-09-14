@@ -18,8 +18,8 @@ class CreateCobrosSucursalesTable extends Migration
             $table->id();
             $table->bigInteger('cobro_id')->nullable();
             $table->bigInteger('sucursal_id')->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

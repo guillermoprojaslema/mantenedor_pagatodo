@@ -26,8 +26,8 @@ class CreateSubagenciaLogsTable extends Migration
             $table->float('saldo_anterior', 10, 0)->nullable();
             $table->float('saldo_actual', 10, 0)->nullable();
             $table->string('descripcion', 200)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

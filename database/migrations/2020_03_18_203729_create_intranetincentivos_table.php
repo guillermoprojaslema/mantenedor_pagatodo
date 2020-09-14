@@ -22,8 +22,8 @@ class CreateIntranetincentivosTable extends Migration {
 			$table->integer('monto')->nullable();
 			$table->bigInteger('intranetranking_id');
 			$table->date('fecha_semana');
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 
 		});
 	}

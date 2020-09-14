@@ -21,8 +21,8 @@ class CreateIntranetnoticiasTable extends Migration {
 			$table->string('noticia')->nullable();
 			$table->dateTime('fecha')->nullable();
 			$table->string('resumen', 600)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

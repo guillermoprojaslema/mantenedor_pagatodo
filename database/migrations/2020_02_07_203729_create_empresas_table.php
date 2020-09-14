@@ -15,7 +15,7 @@ class CreateEmpresasTable extends Migration
     public function up()
     {
         Schema::create('empresas', function (Blueprint $table) {
-            $table->bigIncrements();
+            $table->id();
             $table->integer('categoriaempresa_id');
             $table->string('nombre', 200);
             $table->string('funcion', 100)->nullable();
@@ -33,8 +33,8 @@ class CreateEmpresasTable extends Migration
             $table->string('email', 50)->nullable();
             $table->integer('visa_id')->nullable();
             $table->string('imagen', 250)->nullable();
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

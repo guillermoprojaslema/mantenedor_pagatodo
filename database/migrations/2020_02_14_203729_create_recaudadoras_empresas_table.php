@@ -18,8 +18,8 @@ class CreateRecaudadorasEmpresasTable extends Migration {
 			$table->id();
 			$table->integer('recaudadora_id');
 			$table->integer('empresa_id');
-            $table->timestamps()->nullable();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

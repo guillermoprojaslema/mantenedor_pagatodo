@@ -19,8 +19,8 @@ class CreateQueueSettingsTable extends Migration {
 			$table->bigInteger('partner_id');
 			$table->bigInteger('branch_id');
 			$table->boolean('enabled')->nullable()->default(1);
-            $table->timestamps()->nullable()->useCurrent();
-            $table->softDeletes()->nullable();
+            $table->timestamps();
+            $table->softDeletes();
 		});
 	}
 

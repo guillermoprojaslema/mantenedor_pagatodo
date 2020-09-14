@@ -19,8 +19,8 @@ class CreateDepositSettingsTable extends Migration
             $table->string('description');
             $table->string('handler')->index('deposit_settings_handler_idx');
             $table->string('handler_cake')->index('deposit_settings_handler_cake_idx');
-            $table->timestampsTz()->nullable();
-            $table->softDeletesTz()->nullable();
+            $table->timestampsTz();
+            $table->softDeletesTz();
         });
     }
 

@@ -20,7 +20,7 @@ class CreateLogsWsTable extends Migration
             $table->text('output')->nullable();
             $table->string('url')->nullable();
             $table->text('payload')->nullable();
-            $table->timestampsTz()->nullable()->useCurrent();
+            $table->timestampsTz();
         });
     }
 
