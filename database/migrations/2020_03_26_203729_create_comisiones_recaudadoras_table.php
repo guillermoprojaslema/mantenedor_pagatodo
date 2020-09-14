@@ -16,14 +16,29 @@ class CreateComisionesRecaudadorasTable extends Migration
     {
         Schema::create('comisiones_recaudadoras', function (Blueprint $table) {
             $table->id();
-            $table->integer('empresa_id')->nullable();
-            $table->integer('servicio_id')->nullable();
-            $table->integer('recaudadora_id')->nullable();
-            $table->integer('tipocargo_id')->nullable();
             $table->float('monto', 10, 0)->nullable();
-            $table->integer('cashout_empresa_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::table('comisiones_recaudadoras', function (Blueprint $table) {
+            $table->foreignId('empresa_id')->constrained()->nullable()->after('id');
+        });
+
+        Schema::table('comisiones_recaudadoras', function (Blueprint $table) {
+            $table->foreignId('servicio_id')->constrained()->nullable()->after('empresa_id');
+        });
+
+        Schema::table('comisiones_recaudadoras', function (Blueprint $table) {
+            $table->foreignId('recaudadora_id')->constrained()->nullable()->after('servicio_id');
+        });
+
+        Schema::table('comisiones_recaudadoras', function (Blueprint $table) {
+            $table->foreignId('tipocargo_id')->constrained()->nullable()->after('recaudadora_id');
+        });
+
+        Schema::table('comisiones_recaudadoras', function (Blueprint $table) {
+            $table->foreignId('cashout_empresa_id')->constrained()->nullable()->after('monto');
         });
     }
 

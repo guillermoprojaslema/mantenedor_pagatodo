@@ -16,7 +16,6 @@ class CreateUmbrellapuntosTable extends Migration {
 		Schema::create('umbrellapuntos', function(Blueprint $table)
 		{
 			$table->id();
-			$table->integer('umbrellacliente_id')->nullable();
 			$table->integer('tipo_1')->nullable();
 			$table->integer('tipo_2')->nullable();
 			$table->integer('tipo_3')->nullable();
@@ -29,6 +28,10 @@ class CreateUmbrellapuntosTable extends Migration {
             $table->timestamps();
             $table->softDeletes();
 		});
+
+        Schema::table('umbrellapuntos', function (Blueprint $table) {
+            $table->foreignId('umbrellacliente_id')->constrained()->nullable()->after('id');
+        });
 	}
 
 

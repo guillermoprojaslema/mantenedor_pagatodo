@@ -16,7 +16,6 @@ class CreateCitasTable extends Migration
     {
         Schema::create('citas', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('oficina_id');
             $table->string('cliente_cedula', 20);
             $table->date('fecha_asignada');
             $table->string('nombre_cliente', 30)->nullable();
@@ -26,6 +25,11 @@ class CreateCitasTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+        Schema::table('citas', function (Blueprint $table) {
+            $table->foreignId('oficina_id')->constrained()->after('id');
+        });
+
     }
 
 

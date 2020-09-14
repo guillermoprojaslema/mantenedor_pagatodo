@@ -16,11 +16,17 @@ class CreateRecaudadorasEmpresasTable extends Migration {
 		Schema::create('recaudadoras_empresas', function(Blueprint $table)
 		{
 			$table->id();
-			$table->integer('recaudadora_id');
-			$table->integer('empresa_id');
             $table->timestamps();
             $table->softDeletes();
 		});
+
+        Schema::table('recaudadoras_empresas', function (Blueprint $table) {
+            $table->foreignId('recaudadora_id')->nullable()->constrained()->after('id');
+        });
+
+        Schema::table('recaudadoras_empresas', function (Blueprint $table) {
+            $table->foreignId('empresa_id')->nullable()->constrained()->after('recaudadora_id');
+        });
 	}
 
 

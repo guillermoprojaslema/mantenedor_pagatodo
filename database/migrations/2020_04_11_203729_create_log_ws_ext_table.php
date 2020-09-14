@@ -16,14 +16,18 @@ class CreateLogWsExtTable extends Migration
     {
         Schema::create('log_ws_ext', function (Blueprint $table) {
             $table->id();
-            $table->integer('empresa_id')->nullable();
             $table->bigInteger('entidad_id')->nullable();
             $table->string('entidad')->nullable();
             $table->text('input')->nullable();
             $table->text('output')->nullable();
             $table->text('payload')->nullable();
             $table->timestampsTz();
+        });
 
+        Schema::table('log_ws_ext', function (Blueprint $table) {
+            $table->foreignId('empresa_id')
+                ->nullable()
+                ->after('id');
         });
     }
 

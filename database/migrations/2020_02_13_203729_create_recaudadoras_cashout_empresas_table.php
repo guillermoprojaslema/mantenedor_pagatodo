@@ -16,11 +16,17 @@ class CreateRecaudadorasCashoutEmpresasTable extends Migration {
 		Schema::create('recaudadoras_cashout_empresas', function(Blueprint $table)
 		{
 			$table->id();
-			$table->integer('recaudadora_id');
-			$table->integer('cashout_empresa_id');
             $table->timestamps();
             $table->softDeletes();
 		});
+
+        Schema::table('recaudadoras_cashout_empresas', function (Blueprint $table) {
+            $table->foreignId('recaudadora_id')->nullable()->constrained()->after('id');
+        });
+
+        Schema::table('recaudadoras_cashout_empresas', function (Blueprint $table) {
+            $table->foreignId('cashout_empresa_id')->nullable()->constrained()->after('recaudadora_id');
+        });
 	}
 
 

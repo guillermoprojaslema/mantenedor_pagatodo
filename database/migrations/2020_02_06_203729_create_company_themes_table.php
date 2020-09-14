@@ -16,11 +16,14 @@ class CreateCompanyThemesTable extends Migration
     {
         Schema::create('company_themes', function (Blueprint $table) {
             $table->id();
-            $table->integer('recaudadora_id')->nullable();
             $table->boolean('activo')->nullable();
             $table->string('nombre_tema', 250)->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::table('company_themes', function (Blueprint $table) {
+            $table->foreignId('recaudadora_id')->nullable()->constrained()->after('id');
         });
     }
 

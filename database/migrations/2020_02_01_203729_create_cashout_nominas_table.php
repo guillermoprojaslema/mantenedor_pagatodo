@@ -16,7 +16,6 @@ class CreateCashoutNominasTable extends Migration
     {
         Schema::create('cashout_nominas', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('cashout_empresa_id');
             $table->float('monto', 10, 0)->nullable();
             $table->integer('validacion')->nullable();
             $table->integer('cantidad')->nullable();
@@ -27,7 +26,13 @@ class CreateCashoutNominasTable extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+        Schema::table('cashout_nominas', function (Blueprint $table) {
+            $table->foreignId('cashout_empresa_id')->constrained()->after('id');
+        });
     }
+
+
 
 
     /**

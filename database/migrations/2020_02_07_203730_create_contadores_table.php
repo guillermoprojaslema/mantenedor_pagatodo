@@ -17,10 +17,13 @@ class CreateContadoresTable extends Migration
         Schema::create('contadores', function (Blueprint $table) {
             $table->id();
             $table->integer('numero')->nullable();
-            $table->integer('empresa_id')->nullable();
             $table->dateTime('fecha')->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::table('contadores', function (Blueprint $table) {
+            $table->foreignId('empresa_id')->constrained()->nullable()->after('numero');
         });
     }
 

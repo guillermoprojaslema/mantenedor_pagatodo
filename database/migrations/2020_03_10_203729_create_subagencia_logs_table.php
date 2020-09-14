@@ -16,7 +16,6 @@ class CreateSubagenciaLogsTable extends Migration
     {
         Schema::create('subagencia_logs', function (Blueprint $table) {
             $table->id();
-            $table->integer('subagencia_id')->nullable();
             $table->dateTime('fecha')->nullable();
             $table->float('debito', 10, 0)->nullable();
             $table->float('credito', 10, 0)->nullable();
@@ -28,6 +27,10 @@ class CreateSubagenciaLogsTable extends Migration
             $table->string('descripcion', 200)->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::table('subagencia_logs', function (Blueprint $table) {
+            $table->foreignId('subagencia_id')->nullable()->constrained()->after('id');
         });
     }
 

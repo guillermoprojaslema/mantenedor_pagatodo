@@ -16,11 +16,14 @@ class CreateSegurosTable extends Migration {
 		Schema::create('seguros', function(Blueprint $table)
 		{
 			$table->id();
-			$table->integer('empresa_id')->nullable();
 			$table->string('nombre', 50)->nullable();
             $table->timestamps();
             $table->softDeletes();
 		});
+
+        Schema::table('seguros', function (Blueprint $table) {
+            $table->foreignId('empresa_id')->nullable()->constrained()->after('id');
+        });
 	}
 
 

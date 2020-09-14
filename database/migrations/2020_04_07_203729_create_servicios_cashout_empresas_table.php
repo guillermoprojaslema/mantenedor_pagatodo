@@ -16,11 +16,23 @@ class CreateServiciosCashoutEmpresasTable extends Migration {
 		Schema::create('servicios_cashout_empresas', function(Blueprint $table)
 		{
 			$table->id();
-			$table->integer('servicio_id')->nullable();
-			$table->integer('cashout_empresa_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
 		});
+
+        Schema::table('servicios_cashout_empresas', function (Blueprint $table) {
+            $table->foreignId('servicio_id')
+                ->constrained()
+                ->nullable()
+                ->after('id');
+        });
+
+        Schema::table('servicios_cashout_empresas', function (Blueprint $table) {
+            $table->foreignId('cashout_empresa_id')
+                ->constrained()
+                ->nullable()
+                ->after('servicio_id');
+        });
 	}
 
 

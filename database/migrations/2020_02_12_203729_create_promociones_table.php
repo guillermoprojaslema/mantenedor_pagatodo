@@ -16,7 +16,6 @@ class CreatePromocionesTable extends Migration {
 		Schema::create('promociones', function(Blueprint $table)
 		{
 			$table->id();
-			$table->integer('empresa_id');
 			$table->string('nombre', 200);
 			$table->dateTime('fecha_desde')->nullable();
 			$table->dateTime('fecha_hasta')->nullable();
@@ -27,7 +26,10 @@ class CreatePromocionesTable extends Migration {
 			$table->float('monto', 10, 0)->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
 
+        Schema::table('promociones', function (Blueprint $table) {
+            $table->foreignId('empresa_id')->nullable()->constrained()->after('id');
         });
 	}
 

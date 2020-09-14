@@ -16,7 +16,6 @@ class CreateIntranetnoticiasTable extends Migration {
 		Schema::create('intranetnoticias', function(Blueprint $table)
 		{
 			$table->id();
-			$table->integer('empleado_id')->nullable();
 			$table->string('titulo', 80)->nullable();
 			$table->string('noticia')->nullable();
 			$table->dateTime('fecha')->nullable();
@@ -24,6 +23,10 @@ class CreateIntranetnoticiasTable extends Migration {
             $table->timestamps();
             $table->softDeletes();
 		});
+
+        Schema::table('intranetnoticias', function (Blueprint $table) {
+            $table->foreignId('empleado_id')->nullable()->after('id');
+        });
 	}
 
 

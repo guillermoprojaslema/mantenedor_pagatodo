@@ -16,12 +16,18 @@ class CreatePaymentAuthorizationsTable extends Migration {
 		Schema::create('payment_authorizations', function(Blueprint $table)
 		{
 			$table->id();
-			$table->bigInteger('payment_id');
 			$table->string('authorization_number', 10);
-			$table->integer('sucursal_id');
             $table->timestamps();
             $table->softDeletes();
 		});
+
+        Schema::table('payment_authorizations', function (Blueprint $table) {
+            $table->foreignId('payment_id')->constrained('pagos')->nullable()->after('id');
+        });
+
+        Schema::table('payment_authorizations', function (Blueprint $table) {
+            $table->foreignId('sucursal_id')->constrained('sucursales')->nullable()->after('authorization_number');
+        });
 	}
 
 

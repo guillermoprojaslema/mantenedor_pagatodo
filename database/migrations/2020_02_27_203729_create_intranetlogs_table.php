@@ -16,13 +16,16 @@ class CreateIntranetlogsTable extends Migration
     {
         Schema::create('intranetlogs', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('empleado_id')->nullable();
             $table->string('origen', 300)->nullable();
             $table->string('ip', 100)->nullable();
             $table->bigInteger('sucursal_id')->nullable();
             $table->date('fecha')->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::table('intranetlogs', function (Blueprint $table) {
+            $table->foreignId('empleado_id')->nullable()->after('id');
         });
 
     }

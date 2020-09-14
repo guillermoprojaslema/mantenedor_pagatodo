@@ -16,11 +16,17 @@ class CreateCuentascitisTable extends Migration
     {
         Schema::create('cuentascitis', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('cedulasciti_id')->nullable();
-            $table->bigInteger('moneda_id')->nullable();
             $table->string('numero_cuenta', 50)->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::table('cuentascitis', function (Blueprint $table) {
+            $table->foreignId('cedulasciti_id')->nullable()->constrained('cedulascitis')->after('id');
+        });
+
+        Schema::table('cuentascitis', function (Blueprint $table) {
+            $table->foreignId('moneda_id')->nullable()->after('cedulasciti_id');
         });
     }
 

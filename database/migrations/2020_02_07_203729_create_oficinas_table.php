@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMediopagosSucursalesTable extends Migration {
+class CreateOficinasTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -13,14 +13,18 @@ class CreateMediopagosSucursalesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('mediopagos_sucursales', function(Blueprint $table)
+		Schema::create('oficinas', function(Blueprint $table)
 		{
 			$table->id();
-			$table->integer('sucursal_id')->nullable();
-			$table->integer('mediopago_id')->nullable();
+			$table->string('nombre', 50);
+			$table->integer('cantidad')->nullable();
             $table->timestamps();
             $table->softDeletes();
 		});
+
+        Schema::table('oficinas', function (Blueprint $table) {
+            $table->foreignId('empresa_id')->constrained()->after('id');
+        });
 	}
 
 
@@ -31,7 +35,7 @@ class CreateMediopagosSucursalesTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('mediopagos_sucursales');
+		Schema::drop('oficinas');
 	}
 
 }

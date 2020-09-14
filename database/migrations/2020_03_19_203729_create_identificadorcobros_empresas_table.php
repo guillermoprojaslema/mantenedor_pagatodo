@@ -16,11 +16,17 @@ class CreateIdentificadorcobrosEmpresasTable extends Migration {
 		Schema::create('identificadorcobros_empresas', function(Blueprint $table)
 		{
 			$table->id();
-			$table->bigInteger('identificadorcobro_id');
-			$table->bigInteger('empresa_id');
             $table->timestamps();
             $table->softDeletes();
 		});
+
+        Schema::table('identificadorcobros_empresas', function (Blueprint $table) {
+            $table->foreignId('identificadorcobro_id')->constrained()->after('id');
+        });
+
+        Schema::table('identificadorcobros_empresas', function (Blueprint $table) {
+            $table->foreignId('empresa_id')->constrained()->after('identificadorcobro_id');
+        });
 	}
 
 

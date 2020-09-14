@@ -16,8 +16,6 @@ class CreateLogsTable extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
-            $table->integer('tipolog_id')->nullable();
-            $table->integer('empleado_id')->nullable();
             $table->string('clave_asociada')->nullable();
             $table->string('valor_asociado')->nullable();
             $table->string('detalle')->nullable();
@@ -25,6 +23,14 @@ class CreateLogsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
+        });
+
+        Schema::table('logs', function (Blueprint $table) {
+            $table->foreignId('tipolog_id')->nullable()->after('id');
+        });
+
+        Schema::table('logs', function (Blueprint $table) {
+            $table->foreignId('empleado_id')->nullable()->after('tipolog_id');
         });
     }
 

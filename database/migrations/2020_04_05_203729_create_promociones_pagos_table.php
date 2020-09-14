@@ -16,13 +16,25 @@ class CreatePromocionesPagosTable extends Migration
     {
         Schema::create('promociones_pagos', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('pago_id');
-            $table->integer('promocion_id');
             $table->integer('validador')->nullable();
             $table->string('telefono', 100)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
+
+        Schema::table('promociones_pagos', function (Blueprint $table) {
+            $table->foreignId('pago_id')
+                ->constrained()
+                ->after('id');
+        });
+
+        Schema::table('promociones_pagos', function (Blueprint $table) {
+            $table->foreignId('promocion_id')
+                ->constrained('promociones')
+                ->after('pago_id');
+        });
+
+
     }
 
 

@@ -16,7 +16,6 @@ class CreateIntranetarchivosTable extends Migration {
 		Schema::create('intranetarchivos', function(Blueprint $table)
 		{
 			$table->id();
-			$table->bigInteger('empleado_id')->nullable();
 			$table->string('nombre', 100)->nullable();
 			$table->string('tipo', 100)->nullable();
 			$table->integer('tamano')->nullable();
@@ -24,6 +23,10 @@ class CreateIntranetarchivosTable extends Migration {
             $table->string('ext', 10)->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::table('intranetarchivos', function (Blueprint $table) {
+            $table->foreignId('empleado_id')->nullable()->after('id');
         });
 	}
 

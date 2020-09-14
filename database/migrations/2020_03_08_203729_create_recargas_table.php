@@ -16,21 +16,42 @@ class CreateRecargasTable extends Migration
     {
         Schema::create('recargas', function (Blueprint $table) {
             $table->id();
-            $table->integer('empleado_id')->nullable();
-            $table->integer('sucursal_id')->nullable();
-            $table->integer('empresa_id')->nullable();
-            $table->integer('tipopago_id')->nullable();
-            $table->integer('mediopago_id')->nullable();
             $table->float('monto', 10, 0)->nullable();
             $table->string('numero_recibo', 100)->nullable();
             $table->string('numero_mediopago', 100)->nullable();
             $table->text('observacion')->nullable();
-            $table->integer('estadopago_id')->nullable();
             $table->string('numero_recarga', 50)->nullable();
             $table->bigInteger('extras')->nullable();
-            $table->integer('moneda_id')->nullable()->default(1);
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::table('recargas', function (Blueprint $table) {
+            $table->foreignId('empleado_id')->constrained()->after('id');
+        });
+
+        Schema::table('recargas', function (Blueprint $table) {
+            $table->foreignId('sucursal_id')->constrained('sucursales')->after('empleado_id');
+        });
+
+        Schema::table('recargas', function (Blueprint $table) {
+            $table->foreignId('empresa_id')->constrained()->after('sucursal_id');
+        });
+
+        Schema::table('recargas', function (Blueprint $table) {
+            $table->foreignId('tipopago_id')->constrained()->after('empresa_id');
+        });
+
+        Schema::table('recargas', function (Blueprint $table) {
+            $table->foreignId('mediopago_id')->constrained()->after('tipopago_id');
+        });
+
+        Schema::table('recargas', function (Blueprint $table) {
+            $table->foreignId('estadopago_id')->constrained()->after('mediopago_id');
+        });
+
+        Schema::table('recargas', function (Blueprint $table) {
+            $table->foreignId('moneda_id')->constrained()->after('estadopago_id');
         });
     }
 

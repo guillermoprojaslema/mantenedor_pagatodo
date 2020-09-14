@@ -16,11 +16,14 @@ class CreateResponseMessagesTable extends Migration
     {
         Schema::create('response_messages', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('partner_id');
             $table->integer('code');
             $table->string('message', 150);
             $table->timestampsTz();
             $table->softDeletesTz();
+        });
+
+        Schema::table('response_messages', function (Blueprint $table) {
+            $table->foreignId('partner_id')->nullable()->constrained('empresas')->after('id');
         });
     }
 

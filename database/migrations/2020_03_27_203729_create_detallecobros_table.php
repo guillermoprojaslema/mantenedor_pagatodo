@@ -18,10 +18,13 @@ class CreateDetallecobrosTable extends Migration {
 			$table->id();
 			$table->string('nombre', 100)->nullable();
 			$table->float('valor', 10, 0)->nullable();
-			$table->bigInteger('cobro_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
 		});
+
+        Schema::table('detallecobros', function (Blueprint $table) {
+            $table->foreignId('cobro_id')->constrained()->nullable()->after('id');
+        });
 	}
 
 

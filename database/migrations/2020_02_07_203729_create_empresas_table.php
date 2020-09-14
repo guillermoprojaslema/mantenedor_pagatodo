@@ -16,7 +16,6 @@ class CreateEmpresasTable extends Migration
     {
         Schema::create('empresas', function (Blueprint $table) {
             $table->id();
-            $table->integer('categoriaempresa_id');
             $table->string('nombre', 200);
             $table->string('funcion', 100)->nullable();
             $table->smallInteger('pago_parcial')->nullable();
@@ -35,6 +34,10 @@ class CreateEmpresasTable extends Migration
             $table->string('imagen', 250)->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::table('empresas', function (Blueprint $table) {
+            $table->foreignId('categoriaempresa_id')->nullable()->constrained()->after('id');
         });
     }
 

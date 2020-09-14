@@ -19,18 +19,33 @@ class CreateEmpleadosTable extends Migration
             $table->string('nombre', 100);
             $table->string('cedula', 100);
             $table->string('codigo', 100)->nullable();
-            $table->bigInteger('sucursal_id');
             $table->string('usuario', 100)->nullable();
             $table->string('password', 100)->nullable();
-            $table->bigInteger('grupo_id');
-            $table->bigInteger('estado_id');
-            $table->bigInteger('empresa_id')->nullable()->default(0);
-            $table->bigInteger('cashout_empresa_id')->nullable()->default(0);
             $table->string('terminal', 20)->nullable();
             $table->text('tokenId')->nullable();
             $table->boolean('es_virtual')->nullable()->default(0);
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::table('empleados', function (Blueprint $table) {
+            $table->foreignId('sucursal_id')->nullable()->constrained('sucursales')->after('codigo');
+        });
+
+        Schema::table('empleados', function (Blueprint $table) {
+            $table->foreignId('grupo_id')->nullable()->constrained()->after('password');
+        });
+
+        Schema::table('empleados', function (Blueprint $table) {
+            $table->foreignId('estado_id')->nullable()->constrained()->after('grupo_id');
+        });
+
+        Schema::table('empleados', function (Blueprint $table) {
+            $table->foreignId('empresa_id')->nullable()->constrained()->after('estado_id');
+        });
+
+        Schema::table('empleados', function (Blueprint $table) {
+            $table->foreignId('cashout_empresa_id')->nullable()->constrained()->default(0)->after('empresa_id');
         });
     }
 

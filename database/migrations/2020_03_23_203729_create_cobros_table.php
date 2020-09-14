@@ -16,10 +16,8 @@ class CreateCobrosTable extends Migration
     {
         Schema::create('cobros', function (Blueprint $table) {
             $table->id();
-            $table->integer('empresa_id');
             $table->string('cliente_cedula', 100)->nullable();
             $table->string('cliente_numero', 200)->nullable();
-            $table->bigInteger('servicio_id')->index('cobros_servicio_id_idx');
             $table->date('fecha_emision')->nullable();
             $table->date('fecha_vencimiento')->nullable();
             $table->float('valor_minimo', 10, 0)->nullable();
@@ -29,13 +27,27 @@ class CreateCobrosTable extends Migration
             $table->string('numero_boleta_factura', 200)->nullable();
             $table->string('cliente_nombre', 200)->nullable();
             $table->text('extras')->nullable();
-            $table->bigInteger('moneda_id')->nullable()->default(1);
             $table->string('validador', 200)->nullable();
             $table->string('datos_visa', 300)->nullable();
-            $table->bigInteger('parent_id')->nullable();
             $table->boolean('obligatoria')->nullable()->default(1);
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::table('cobros', function (Blueprint $table) {
+            $table->foreignId('empresa_id')->constrained()->nullable()->after('id');
+        });
+
+        Schema::table('cobros', function (Blueprint $table) {
+            $table->foreignId('servicio_id')->constrained()->nullable()->after('id')->index('cobros_servicio_id_idx');;
+        });
+
+        Schema::table('cobros', function (Blueprint $table) {
+            $table->foreignId('moneda_id')->constrained()->nullable()->after('extras');
+        });
+
+        Schema::table('cobros', function (Blueprint $table) {
+            $table->foreignId('parent_id')->constrained('cobros')->nullable()->after('datos_visa');
         });
     }
 

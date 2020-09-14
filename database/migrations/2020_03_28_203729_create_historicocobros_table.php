@@ -16,10 +16,8 @@ class CreateHistoricocobrosTable extends Migration
     {
         Schema::create('historicocobros', function (Blueprint $table) {
             $table->id();
-            $table->integer('empresa_id')->nullable();
             $table->string('cliente_cedula', 100)->nullable();
             $table->string('cliente_numero', 200)->nullable();
-            $table->string('servicio_id', 100)->index('historicocobros_servicio_id_idx');
             $table->date('fecha_emision')->nullable();
             $table->date('fecha_vencimiento')->nullable();
             $table->float('valor_minimo', 10, 0)->nullable();
@@ -28,12 +26,40 @@ class CreateHistoricocobrosTable extends Migration
             $table->string('tipo', 200)->nullable();
             $table->string('numero_boleta_factura', 200)->nullable();
             $table->string('cliente_nombre', 200)->nullable();
-            $table->integer('moneda_id')->nullable()->default(1);
             $table->text('extras')->nullable();
             $table->string('datos_visa', 300)->nullable();
-            $table->bigInteger('parent_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::table('historicocobros', function (Blueprint $table) {
+            $table->foreignId('empresa_id')
+                ->constrained()
+                ->nullable()
+                ->after('id');
+        });
+
+        Schema::table('historicocobros', function (Blueprint $table) {
+            $table->foreignId('servicio_id')
+                ->constrained('sucursales')
+                ->nullable()
+                ->after('id')
+                ->index('historicocobros_servicio_id_idx');;
+        });
+
+        Schema::table('historicocobros', function (Blueprint $table) {
+            $table->foreignId('moneda_id')
+                ->constrained()
+                ->nullable()
+                ->after('extras')
+                ->default(1);
+        });
+
+        Schema::table('historicocobros', function (Blueprint $table) {
+            $table->foreignId('parent_id')
+                ->constrained('historicocobros')
+                ->nullable()
+                ->after('datos_visa');
         });
     }
 

@@ -16,16 +16,21 @@ class CreateIntranetincentivosTable extends Migration {
 		Schema::create('intranetincentivos', function(Blueprint $table)
 		{
 			$table->id();
-			$table->integer('empleado_id');
 			$table->integer('total_ventas')->nullable();
 			$table->integer('fecha_pago')->nullable();
 			$table->integer('monto')->nullable();
-			$table->bigInteger('intranetranking_id');
 			$table->date('fecha_semana');
             $table->timestamps();
             $table->softDeletes();
-
 		});
+
+        Schema::table('intranetincentivos', function (Blueprint $table) {
+            $table->foreignId('empleado_id')->constrained()->after('id');
+        });
+
+        Schema::table('intranetincentivos', function (Blueprint $table) {
+            $table->foreignId('intranetranking_id')->constrained()->after('monto');
+        });
 	}
 
 

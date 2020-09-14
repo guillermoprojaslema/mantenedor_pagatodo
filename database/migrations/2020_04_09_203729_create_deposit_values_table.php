@@ -16,13 +16,34 @@ class CreateDepositValuesTable extends Migration {
 		Schema::create('deposit_values', function(Blueprint $table)
 		{
 			$table->id();
-			$table->integer('branch_id')->index('deposit_values_branch_id_idx');
-			$table->integer('partner_id')->index('deposit_values_partner_id_idx');
-			$table->integer('setting_id')->index('deposit_values_setting_id_idx');
 			$table->boolean('just_virtual_employees')->default(0);
             $table->timestampsTz();
             $table->softDeletesTz();
 		});
+
+        Schema::table('deposit_values', function (Blueprint $table) {
+            $table->foreignId('branch_id')
+                ->constrained('sucursales')
+                ->index('deposit_values_branch_id_idx')
+                ->nullable()
+                ->after('id');
+        });
+
+        Schema::table('deposit_values', function (Blueprint $table) {
+            $table->foreignId('partner_id')
+                ->constrained('empresas')
+                ->index('deposit_values_partner_id_idx')
+                ->nullable()
+                ->after('branch_id');
+        });
+
+        Schema::table('deposit_values', function (Blueprint $table) {
+            $table->foreignId('deposit_settings')
+                ->constrained()
+                ->index('deposit_values_setting_id_idx')
+                ->nullable()
+                ->after('setting_id');
+        });
 	}
 
 

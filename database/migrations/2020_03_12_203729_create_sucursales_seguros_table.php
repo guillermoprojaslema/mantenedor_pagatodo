@@ -16,12 +16,19 @@ class CreateSucursalesSegurosTable extends Migration {
 		Schema::create('sucursales_seguros', function(Blueprint $table)
 		{
 			$table->id();
-			$table->integer('sucursal_id')->nullable();
-			$table->integer('seguro_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
 		});
-	}
+
+        Schema::table('sucursales_seguros', function (Blueprint $table) {
+            $table->foreignId('sucursal_id')->nullable()->constrained('sucursales')->after('id');
+        });
+
+        Schema::table('sucursales_seguros', function (Blueprint $table) {
+            $table->foreignId('seguro_id')->nullable()->constrained()->after('sucursal_id');
+        });
+
+    }
 
 
 	/**

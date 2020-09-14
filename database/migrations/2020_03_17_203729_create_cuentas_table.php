@@ -16,14 +16,22 @@ class CreateCuentasTable extends Migration
     {
         Schema::create('cuentas', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('cliente_id')->index('cliente_id_index');
-            $table->bigInteger('empresa_id');
             $table->string('cuenta')->nullable();
             $table->bigInteger('tipobusqueda')->nullable();
             $table->string('fecha_notificacion', 4)->nullable();
-            $table->bigInteger('empleado_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::table('cuentas', function (Blueprint $table) {
+            $table->foreignId('cliente_id')->constrained()->after('id')->index('cliente_id_index');
+        });
+
+        Schema::table('cuentas', function (Blueprint $table) {
+            $table->foreignId('empresa_id')->constrained()->after('cliente_id');
+        });
+        Schema::table('cuentas', function (Blueprint $table) {
+            $table->foreignId('empleado_id')->constrained()->after('fecha_notificacion');
         });
     }
 

@@ -16,12 +16,14 @@ class CreateCampanasTable extends Migration
     {
         Schema::create('campanas', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('estadocampana_id')->nullable();
             $table->string('nombre', 50)->nullable();
             $table->time('umbrella')->nullable()->default(0);
             $table->timestamps();
             $table->softDeletes();
+        });
 
+        Schema::table('campanas', function (Blueprint $table) {
+            $table->foreignId('estadocampana_id')->constrained()->after('id');
         });
     }
 

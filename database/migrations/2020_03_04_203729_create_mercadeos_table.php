@@ -16,17 +16,25 @@ class CreateMercadeosTable extends Migration {
 		Schema::create('mercadeos', function(Blueprint $table)
 		{
 			$table->id();
-			$table->bigInteger('recaudadora_id')->nullable();
-			$table->bigInteger('sucursal_id')->nullable();
-			$table->bigInteger('campana_id')->nullable();
 			$table->integer('meta_pago')->nullable();
 			$table->integer('meta_recarga')->nullable();
 			$table->dateTime('fecha_desde')->nullable();
 			$table->dateTime('fecha_hasta')->nullable();
             $table->timestamps();
             $table->softDeletes();
-
 		});
+
+        Schema::table('mercadeos', function (Blueprint $table) {
+            $table->foreignId('recaudadora_id')->constrained()->after('id');
+        });
+
+        Schema::table('mercadeos', function (Blueprint $table) {
+            $table->foreignId('sucursal_id')->constrained('sucursales')->after('recaudadora_id');
+        });
+
+        Schema::table('mercadeos', function (Blueprint $table) {
+            $table->foreignId('campana_id')->constrained()->after('sucursal_id');
+        });
 	}
 
 

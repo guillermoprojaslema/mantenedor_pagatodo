@@ -16,11 +16,14 @@ class CreateNullifyPaymentRequestsTable extends Migration {
 		Schema::create('nullify_payment_requests', function(Blueprint $table)
 		{
 			$table->id();
-			$table->bigInteger('payment_id');
 			$table->dateTime('request_date')->nullable();
             $table->timestamps();
             $table->softDeletes();
 		});
+
+        Schema::table('nullify_payment_requests', function (Blueprint $table) {
+            $table->foreignId('payment_id')->constrained('pagos')->nullable()->after('id');
+        });
 	}
 
 

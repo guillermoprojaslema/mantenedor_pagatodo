@@ -23,6 +23,12 @@ class CreateLogPartnersTable extends Migration
             $table->timestampsTz();
 
         });
+
+        Schema::table('log_partners', function (Blueprint $table) {
+            $table->foreignId('partner_id')->nullable()->constrained('empresas')->after('id');
+        });
+
+
     }
 
 

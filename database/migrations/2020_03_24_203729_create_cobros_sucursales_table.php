@@ -16,10 +16,22 @@ class CreateCobrosSucursalesTable extends Migration
     {
         Schema::create('cobros_sucursales', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('cobro_id')->nullable();
-            $table->bigInteger('sucursal_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::table('cobros_sucursales', function (Blueprint $table) {
+            $table->foreignId('cobro_id')
+                ->constrained()
+                ->nullable()
+                ->after('id');
+        });
+
+        Schema::table('cobros_sucursales', function (Blueprint $table) {
+            $table->foreignId('sucursal_id')
+                ->constrained('sucursales')
+                ->nullable()
+                ->after('cobro_id');
         });
     }
 

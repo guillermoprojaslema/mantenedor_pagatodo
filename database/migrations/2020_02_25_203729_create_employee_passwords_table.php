@@ -16,11 +16,14 @@ class CreateEmployeePasswordsTable extends Migration {
 		Schema::create('employee_passwords', function(Blueprint $table)
 		{
 			$table->id();
-			$table->integer('empleado_id');
 			$table->string('password', 50);
             $table->timestamps();
             $table->softDeletes();
 		});
+
+        Schema::table('employee_passwords', function (Blueprint $table) {
+            $table->foreignId('empleado_id')->nullable()->after('id');
+        });
 	}
 
 

@@ -16,12 +16,18 @@ class CreatePartnerValuesTable extends Migration {
 		Schema::create('partner_values', function(Blueprint $table)
 		{
 			$table->id();
-			$table->bigInteger('item_id')->nullable();
-			$table->integer('environment_id')->nullable();
 			$table->text('value')->nullable();
             $table->timestampsTz();
             $table->softDeletesTz();
 		});
+
+        Schema::table('partner_values', function (Blueprint $table) {
+            $table->foreignId('item_id')->constrained('partner_items')->after('id');
+        });
+
+        Schema::table('partner_values', function (Blueprint $table) {
+            $table->foreignId('environment_id')->constrained('partner_environments')->after('item_id');
+        });
 	}
 
 

@@ -16,11 +16,23 @@ class CreateServiciosEmpresasTable extends Migration {
 		Schema::create('servicios_empresas', function(Blueprint $table)
 		{
 			$table->id();
-			$table->integer('servicio_id')->nullable();
-			$table->integer('empresa_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
 		});
+
+        Schema::table('servicios_empresas', function (Blueprint $table) {
+            $table->foreignId('servicio_id')
+                ->constrained()
+                ->nullable()
+                ->after('id');
+        });
+
+        Schema::table('servicios_empresas', function (Blueprint $table) {
+            $table->foreignId('empresa_id')
+                ->constrained()
+                ->nullable()
+                ->after('servicio_id');
+        });
 	}
 
 

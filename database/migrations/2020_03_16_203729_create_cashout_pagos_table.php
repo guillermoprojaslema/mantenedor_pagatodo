@@ -16,21 +16,57 @@ class CreateCashoutPagosTable extends Migration
     {
         Schema::create('cashout_pagos', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('cashout_cobro_id');
-            $table->bigInteger('empleado_id');
-            $table->bigInteger('sucursal_id');
-            $table->bigInteger('cashout_empresa_id');
             $table->dateTime('fecha')->nullable();
             $table->float('monto', 10, 0)->nullable();
             $table->integer('numero_recibo')->nullable();
-            $table->bigInteger('estadopago_id')->nullable();
             $table->string('extras', 100)->nullable();
             $table->string('cedula', 100)->nullable();
             $table->string('cliente_nombre', 100)->nullable();
             $table->string('tipo', 250)->nullable();
-            $table->bigInteger('cashout_nomina_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
+        });
+
+        Schema::table('cashout_pagos', function (Blueprint $table) {
+            $table->foreignId('cashout_cobro_id')
+                ->constrained()
+                ->nullable()
+                ->after('id');
+        });
+
+        Schema::table('cashout_pagos', function (Blueprint $table) {
+            $table->foreignId('empleado_id')
+                ->constrained()
+                ->nullable()
+                ->after('cashout_cobro_id');
+        });
+
+        Schema::table('cashout_pagos', function (Blueprint $table) {
+            $table->foreignId('sucursal_id')
+                ->constrained('sucursales')
+                ->nullable()
+                ->after('empleado_id');
+        });
+
+        Schema::table('cashout_pagos', function (Blueprint $table) {
+            $table->foreignId('cashout_empresa_id')
+                ->constrained()
+                ->nullable()
+                ->after('sucursal_id');
+        });
+
+        Schema::table('cashout_pagos', function (Blueprint $table) {
+            $table->foreignId('estadopago_id')
+                ->constrained()
+                ->nullable()
+                ->after('numero_recibo');
+        });
+
+        Schema::table('cashout_pagos', function (Blueprint $table) {
+            $table->foreignId('cashout_nomina_id')
+                ->constrained()
+                ->nullable()
+                ->after('tipo');
         });
     }
 
