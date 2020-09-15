@@ -4,41 +4,48 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMediopagosTable extends Migration {
+class CreateMediopagosTable extends Migration
+{
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-		Schema::create('mediopagos', function(Blueprint $table)
-		{
-			$table->id();
-			$table->string('nombre', 100);
-			$table->string('payment_code', 100)
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('mediopagos', function (Blueprint $table) {
+            $table->id();
+            $table->string('nombre', 100);
+            $table->string('payment_code', 100)
                 ->nullable();
             $table->timestamps();
             $table->softDeletes();
-		});
+        });
 
         Schema::table('mediopagos', function (Blueprint $table) {
             $table->foreignId('tipopago_id')
+                ->constrained()
                 ->nullable()
                 ->after('id');
         });
-	}
 
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		Schema::drop('mediopagos');
-	}
+    }
+
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('mediopagos', function (Blueprint $table) {
+            $table->dropForeign(['tipopago_id']);
+        });
+
+        Schema::drop('mediopagos');
+    }
 
 }

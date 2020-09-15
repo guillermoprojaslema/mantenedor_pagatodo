@@ -37,6 +37,11 @@ class CreatePartnerItemsTable extends Migration {
 	 */
 	public function down()
 	{
+        Schema::table('partner_items', function (Blueprint $table) {
+            $table->dropForeign(['partner_id'])
+                ->constrained('empresas');
+        });
+
 		Schema::drop('partner_items');
 	}
 

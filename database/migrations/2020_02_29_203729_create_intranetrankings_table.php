@@ -35,12 +35,11 @@ class CreateIntranetrankingsTable extends Migration
         Schema::table('intranetrankings', function (Blueprint $table) {
             $table->foreignId('empleado_id')
                 ->nullable()
+                ->constrained()
                 ->after('id');
-        });
-
-        Schema::table('intranetrankings', function (Blueprint $table) {
             $table->foreignId('empresa_id')
                 ->nullable()
+                ->constrained()
                 ->after('empleado_id');
         });
     }
@@ -53,6 +52,11 @@ class CreateIntranetrankingsTable extends Migration
      */
     public function down()
     {
+        Schema::table('intranetrankings', function (Blueprint $table) {
+            $table->dropForeign(['empleado_id']);
+            $table->dropForeign(['empresa_id']);
+        });
+
         Schema::drop('intranetrankings');
     }
 

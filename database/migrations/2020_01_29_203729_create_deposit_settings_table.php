@@ -17,11 +17,17 @@ class CreateDepositSettingsTable extends Migration
         Schema::create('deposit_settings', function (Blueprint $table) {
             $table->id();
             $table->string('description');
-            $table->string('handler')->index('deposit_settings_handler_idx');
-            $table->string('handler_cake')->index('deposit_settings_handler_cake_idx');
+            $table->string('handler');
+            $table->string('handler_cake');
             $table->timestampsTz();
             $table->softDeletesTz();
         });
+
+        Schema::table('deposit_settings', function (Blueprint $table) {
+            $table->index(['handler']);
+            $table->index(['handler_cake']);
+        });
+
     }
 
 
@@ -32,6 +38,11 @@ class CreateDepositSettingsTable extends Migration
      */
     public function down()
     {
+        Schema::table('deposit_settings', function (Blueprint $table) {
+            $table->dropIndex(['handler']);
+            $table->dropIndex(['handler_cake']);
+        });
+
         Schema::drop('deposit_settings');
     }
 

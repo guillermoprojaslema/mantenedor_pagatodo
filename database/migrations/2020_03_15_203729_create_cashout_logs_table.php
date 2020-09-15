@@ -30,9 +30,6 @@ class CreateCashoutLogsTable extends Migration
                 ->nullable()
                 ->constrained()
                 ->after('id');
-        });
-
-        Schema::table('cashout_logs', function (Blueprint $table) {
             $table->foreignId('empleado_id')
                 ->nullable()
                 ->constrained()
@@ -48,6 +45,11 @@ class CreateCashoutLogsTable extends Migration
      */
     public function down()
     {
+        Schema::table('cashout_logs', function (Blueprint $table) {
+            $table->dropForeign(['tipolog_id']);
+            $table->dropForeign(['empleado_id']);
+        });
+
         Schema::drop('cashout_logs');
     }
 

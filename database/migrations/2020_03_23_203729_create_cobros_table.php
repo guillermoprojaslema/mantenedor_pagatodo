@@ -53,27 +53,21 @@ class CreateCobrosTable extends Migration
                 ->constrained()
                 ->nullable()
                 ->after('id');
-        });
-
-        Schema::table('cobros', function (Blueprint $table) {
             $table->foreignId('servicio_id')
                 ->constrained()->nullable()
-                ->after('id')
-                ->index('cobros_servicio_id_idx');;
-        });
-
-        Schema::table('cobros', function (Blueprint $table) {
+                ->after('id');
             $table->foreignId('moneda_id')
                 ->constrained()
                 ->nullable()
                 ->after('extras');
-        });
-
-        Schema::table('cobros', function (Blueprint $table) {
             $table->foreignId('parent_id')
                 ->constrained('cobros')
                 ->nullable()
                 ->after('datos_visa');
+        });
+
+        Schema::table('cobros', function (Blueprint $table) {
+            $table->index('servicio_id');
         });
     }
 
@@ -85,6 +79,14 @@ class CreateCobrosTable extends Migration
      */
     public function down()
     {
+
+        Schema::table('cobros', function (Blueprint $table) {
+            $table->dropForeign(['empresa_id']);
+            $table->dropForeign(['servicio_id']);
+            $table->dropForeign(['moneda_id']);
+            $table->dropForeign(['parent_id']);
+        });
+
         Schema::drop('cobros');
     }
 

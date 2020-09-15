@@ -32,11 +32,10 @@ class CreateLogsTable extends Migration
         Schema::table('logs', function (Blueprint $table) {
             $table->foreignId('tipolog_id')
                 ->nullable()
+                ->constrained()
                 ->after('id');
-        });
-
-        Schema::table('logs', function (Blueprint $table) {
             $table->foreignId('empleado_id')
+                ->constrained()
                 ->nullable()
                 ->after('tipolog_id');
         });
@@ -50,6 +49,10 @@ class CreateLogsTable extends Migration
      */
     public function down()
     {
+        Schema::table('logs', function (Blueprint $table) {
+            $table->dropForeign(['tipolog_id']);
+            $table->dropForeign(['empleado_id']);
+        });
         Schema::drop('logs');
     }
 

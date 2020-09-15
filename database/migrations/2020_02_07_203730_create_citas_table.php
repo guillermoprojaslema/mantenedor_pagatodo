@@ -46,6 +46,10 @@ class CreateCitasTable extends Migration
      */
     public function down()
     {
+        Schema::table('citas', function (Blueprint $table) {
+            $table->dropForeign(['oficina_id']);
+        });
+
         Schema::drop('citas');
     }
 

@@ -16,7 +16,8 @@ class CreateLogIpsTable extends Migration
     {
         Schema::create('log_ips', function (Blueprint $table) {
             $table->id();
-            $table->text('request')->nullable();
+            $table->text('request')
+                ->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

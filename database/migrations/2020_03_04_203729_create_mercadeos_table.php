@@ -32,15 +32,9 @@ class CreateMercadeosTable extends Migration
             $table->foreignId('recaudadora_id')
                 ->constrained()
                 ->after('id');
-        });
-
-        Schema::table('mercadeos', function (Blueprint $table) {
             $table->foreignId('sucursal_id')
                 ->constrained('sucursales')
                 ->after('recaudadora_id');
-        });
-
-        Schema::table('mercadeos', function (Blueprint $table) {
             $table->foreignId('campana_id')
                 ->constrained()
                 ->after('sucursal_id');
@@ -55,6 +49,13 @@ class CreateMercadeosTable extends Migration
      */
     public function down()
     {
+        Schema::table('mercadeos', function (Blueprint $table) {
+            $table->dropForeign(['recaudadora_id']);
+            $table->dropForeign(['sucursal_id']);
+            $table->dropForeign(['campana_id']);
+
+        });
+
         Schema::drop('mercadeos');
     }
 

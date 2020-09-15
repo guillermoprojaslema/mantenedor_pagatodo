@@ -40,6 +40,10 @@ class CreateContadoresTable extends Migration
      */
     public function down()
     {
+        Schema::table('contadores', function (Blueprint $table) {
+            $table->dropForeign(['empresa_id']);
+        });
+
         Schema::drop('contadores');
     }
 

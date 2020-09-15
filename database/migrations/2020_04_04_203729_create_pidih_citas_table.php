@@ -17,7 +17,7 @@ class CreatePidihCitasTable extends Migration
         Schema::create('pidih_citas', function (Blueprint $table) {
             $table->id();
             $table->date('fecha')
-                ->index('pidih_citas_fecha_idx');
+                ->index('pidih_citas_fecha_index');
             $table->timestampsTz();
             $table->softDeletesTz();
         });
@@ -25,22 +25,19 @@ class CreatePidihCitasTable extends Migration
         Schema::table('pidih_citas', function (Blueprint $table) {
             $table->foreignId('persona_id')
                 ->constrained('pidih_personas')
-                ->index('pidih_citas_persona_id_idx')
                 ->after('id');
-        });
-
-        Schema::table('pidih_citas', function (Blueprint $table) {
             $table->foreignId('pago_id')
                 ->constrained()
-                ->index('pidih_citas_pago_id_idx')
                 ->after('persona_id');
+            $table->foreignId('oficina_id')
+                ->constrained()
+                ->after('fecha');
         });
 
         Schema::table('pidih_citas', function (Blueprint $table) {
-            $table->foreignId('oficina_id')
-                ->constrained()
-                ->index('pidih_citas_oficina_id_idx')
-                ->after('fecha');
+            $table->index('persona_id');
+            $table->index('pago_id');
+            $table->index('oficina_id');
         });
     }
 
@@ -52,6 +49,16 @@ class CreatePidihCitasTable extends Migration
      */
     public function down()
     {
+        Schema::table('pidih_citas', function (Blueprint $table) {
+
+            $table->dropIndex(['persona_id']);
+            $table->dropIndex(['pago_id']);
+            $table->dropIndex(['oficina_id']);
+            $table->dropForeign(['persona_id']);
+            $table->dropForeign(['pago_id']);
+            $table->dropForeign(['oficina_id']);
+        });
+
         Schema::drop('pidih_citas');
     }
 

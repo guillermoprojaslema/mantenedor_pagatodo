@@ -26,16 +26,10 @@ class CreateCedulasTable extends Migration
                 ->constrained()
                 ->nullable()
                 ->after('id');
-        });
-
-        Schema::table('cedulas', function (Blueprint $table) {
             $table->foreignId('servicio_id')
                 ->constrained()
                 ->nullable()
                 ->after('empresa_id');
-        });
-
-        Schema::table('cedulas', function (Blueprint $table) {
             $table->foreignId('tipopago_id')
                 ->constrained()
                 ->nullable()
@@ -51,6 +45,12 @@ class CreateCedulasTable extends Migration
      */
     public function down()
     {
+        Schema::table('cedulas', function (Blueprint $table) {
+            $table->dropForeign(['empresa_id']);
+            $table->dropForeign(['servicio_id']);
+            $table->dropForeign(['tipopago_id']);
+        });
+
         Schema::drop('cedulas');
     }
 

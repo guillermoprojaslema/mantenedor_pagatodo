@@ -27,11 +27,9 @@ class CreateCuentascitisTable extends Migration
                 ->nullable()
                 ->constrained('cedulascitis')
                 ->after('id');
-        });
-
-        Schema::table('cuentascitis', function (Blueprint $table) {
             $table->foreignId('moneda_id')
                 ->nullable()
+                ->constrained()
                 ->after('cedulasciti_id');
         });
     }
@@ -44,6 +42,11 @@ class CreateCuentascitisTable extends Migration
      */
     public function down()
     {
+        Schema::table('cuentascitis', function (Blueprint $table) {
+            $table->dropForeign(['cedulasciti_id']);
+            $table->dropForeign(['moneda_id']);
+        });
+
         Schema::drop('cuentascitis');
     }
 

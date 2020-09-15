@@ -38,6 +38,10 @@ class CreateOficinasTable extends Migration {
 	 */
 	public function down()
 	{
+        Schema::table('oficinas', function (Blueprint $table) {
+            $table->dropForeign(['empresa_id']);
+        });
+
 		Schema::drop('oficinas');
 	}
 

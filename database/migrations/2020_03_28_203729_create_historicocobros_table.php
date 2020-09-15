@@ -49,17 +49,14 @@ class CreateHistoricocobrosTable extends Migration
                 ->constrained()
                 ->nullable()
                 ->after('id');
-        });
-
-        Schema::table('historicocobros', function (Blueprint $table) {
+            $table->foreignId('parent_id')
+                ->constrained('historicocobros')
+                ->nullable()
+                ->after('datos_visa');
             $table->foreignId('servicio_id')
                 ->constrained('sucursales')
                 ->nullable()
-                ->after('id')
-                ->index('historicocobros_servicio_id_idx');;
-        });
-
-        Schema::table('historicocobros', function (Blueprint $table) {
+                ->after('id');
             $table->foreignId('moneda_id')
                 ->constrained()
                 ->nullable()
@@ -68,10 +65,10 @@ class CreateHistoricocobrosTable extends Migration
         });
 
         Schema::table('historicocobros', function (Blueprint $table) {
-            $table->foreignId('parent_id')
-                ->constrained('historicocobros')
-                ->nullable()
-                ->after('datos_visa');
+            $table->index(['empresa_id']);
+            $table->index(['servicio_id']);
+            $table->index(['moneda_id']);
+            $table->index(['parent_id']);
         });
     }
 
@@ -83,6 +80,17 @@ class CreateHistoricocobrosTable extends Migration
      */
     public function down()
     {
+        Schema::table('historicocobros', function (Blueprint $table) {
+            $table->dropForeign(['empresa_id']);
+            $table->dropForeign(['servicio_id']);
+            $table->dropForeign(['moneda_id']);
+            $table->dropForeign(['parent_id']);
+            $table->dropIndex(['empresa_id']);
+            $table->dropIndex(['servicio_id']);
+            $table->dropIndex(['moneda_id']);
+            $table->dropIndex(['parent_id']);
+        });
+
         Schema::drop('historicocobros');
     }
 

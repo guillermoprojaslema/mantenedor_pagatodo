@@ -42,6 +42,10 @@ class CreateSubagenciasTable extends Migration
      */
     public function down()
     {
+        Schema::table('subagencias', function (Blueprint $table) {
+            $table->dropForeign(['sucursal_id']);
+        });
+
         Schema::drop('subagencias');
     }
 

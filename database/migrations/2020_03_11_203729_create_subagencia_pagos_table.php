@@ -41,16 +41,10 @@ class CreateSubagenciaPagosTable extends Migration
                 ->nullable()
                 ->constrained()
                 ->after('id');
-        });
-
-        Schema::table('subagencia_pagos', function (Blueprint $table) {
             $table->foreignId('estadopago_id')
                 ->nullable()
                 ->constrained()
                 ->after('saldo_actual');
-        });
-
-        Schema::table('subagencia_pagos', function (Blueprint $table) {
             $table->foreignId('banco_id')
                 ->nullable()
                 ->constrained()
@@ -66,6 +60,13 @@ class CreateSubagenciaPagosTable extends Migration
      */
     public function down()
     {
+        Schema::table('subagencia_pagos', function (Blueprint $table) {
+            $table->dropForeign(['subagencia_id']);
+            $table->dropForeign(['estadopago_id']);
+            $table->dropForeign(['banco_id']);
+
+        });
+
         Schema::drop('subagencia_pagos');
     }
 

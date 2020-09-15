@@ -25,9 +25,6 @@ class CreateEmpresasOpcionesrecargasTable extends Migration
                 ->nullable()
                 ->constrained()
                 ->after('id');
-        });
-
-        Schema::table('empresas_opcionesrecargas', function (Blueprint $table) {
             $table->foreignId('opcionesrecarga_id')
                 ->nullable()
                 ->constrained()
@@ -43,6 +40,12 @@ class CreateEmpresasOpcionesrecargasTable extends Migration
      */
     public function down()
     {
+
+        Schema::table('empresas_opcionesrecargas', function (Blueprint $table) {
+            $table->dropForeign(['empresa_id']);
+            $table->dropForeign(['opcionesrecarga_id']);
+        });
+
         Schema::drop('empresas_opcionesrecargas');
     }
 

@@ -26,9 +26,6 @@ class CreatePartnerValuesTable extends Migration
             $table->foreignId('item_id')
                 ->constrained('partner_items')
                 ->after('id');
-        });
-
-        Schema::table('partner_values', function (Blueprint $table) {
             $table->foreignId('environment_id')
                 ->constrained('partner_environments')
                 ->after('item_id');
@@ -43,6 +40,12 @@ class CreatePartnerValuesTable extends Migration
      */
     public function down()
     {
+
+        Schema::table('partner_values', function (Blueprint $table) {
+            $table->dropForeign(['item_id']);
+            $table->dropForeign(['environment_id']);
+        });
+
         Schema::drop('partner_values');
     }
 

@@ -46,6 +46,10 @@ class CreateRankingsTable extends Migration
      */
     public function down()
     {
+        Schema::table('rankings', function (Blueprint $table) {
+            $table->dropForeign(['empleado_id']);
+        });
+
         Schema::drop('rankings');
     }
 

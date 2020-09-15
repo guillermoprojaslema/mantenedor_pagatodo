@@ -39,37 +39,22 @@ class CreateCashoutPagosTable extends Migration
                 ->constrained()
                 ->nullable()
                 ->after('id');
-        });
-
-        Schema::table('cashout_pagos', function (Blueprint $table) {
             $table->foreignId('empleado_id')
                 ->constrained()
                 ->nullable()
                 ->after('cashout_cobro_id');
-        });
-
-        Schema::table('cashout_pagos', function (Blueprint $table) {
             $table->foreignId('sucursal_id')
                 ->constrained('sucursales')
                 ->nullable()
                 ->after('empleado_id');
-        });
-
-        Schema::table('cashout_pagos', function (Blueprint $table) {
             $table->foreignId('cashout_empresa_id')
                 ->constrained()
                 ->nullable()
                 ->after('sucursal_id');
-        });
-
-        Schema::table('cashout_pagos', function (Blueprint $table) {
             $table->foreignId('estadopago_id')
                 ->constrained()
                 ->nullable()
                 ->after('numero_recibo');
-        });
-
-        Schema::table('cashout_pagos', function (Blueprint $table) {
             $table->foreignId('cashout_nomina_id')
                 ->constrained()
                 ->nullable()
@@ -85,6 +70,15 @@ class CreateCashoutPagosTable extends Migration
      */
     public function down()
     {
+        Schema::table('cashout_pagos', function (Blueprint $table) {
+            $table->dropForeign(['cashout_cobro_id']);
+            $table->dropForeign(['empleado_id']);
+            $table->dropForeign(['sucursal_id']);
+            $table->dropForeign(['cashout_empresa_id']);
+            $table->dropForeign(['estadopago_id']);
+            $table->dropForeign(['cashout_nomina_id']);
+        });
+
         Schema::drop('cashout_pagos');
     }
 

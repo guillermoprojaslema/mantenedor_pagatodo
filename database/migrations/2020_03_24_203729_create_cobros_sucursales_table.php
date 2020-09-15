@@ -25,9 +25,6 @@ class CreateCobrosSucursalesTable extends Migration
                 ->constrained()
                 ->nullable()
                 ->after('id');
-        });
-
-        Schema::table('cobros_sucursales', function (Blueprint $table) {
             $table->foreignId('sucursal_id')
                 ->constrained('sucursales')
                 ->nullable()
@@ -43,6 +40,11 @@ class CreateCobrosSucursalesTable extends Migration
      */
     public function down()
     {
+        Schema::table('cobros_sucursales', function (Blueprint $table) {
+            $table->dropForeign(['sucursal_id']);
+            $table->dropForeign(['cobro_id']);
+        });
+
         Schema::drop('cobros_sucursales');
     }
 

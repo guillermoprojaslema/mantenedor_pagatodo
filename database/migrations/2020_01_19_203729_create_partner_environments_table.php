@@ -18,7 +18,7 @@ class CreatePartnerEnvironmentsTable extends Migration {
 			$table->id();
 			$table->string('name', 300);
             $table->timestampsTz();
-            $table->softDeletesTz()->nullable();
+            $table->softDeletesTz();
 		});
 	}
 

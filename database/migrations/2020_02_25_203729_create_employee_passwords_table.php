@@ -24,6 +24,7 @@ class CreateEmployeePasswordsTable extends Migration {
         Schema::table('employee_passwords', function (Blueprint $table) {
             $table->foreignId('empleado_id')
                 ->nullable()
+                ->constrained()
                 ->after('id');
         });
 	}
@@ -36,6 +37,9 @@ class CreateEmployeePasswordsTable extends Migration {
 	 */
 	public function down()
 	{
+        Schema::table('employee_passwords', function (Blueprint $table) {
+            $table->dropForeign(['empleado_id']);
+        });
 		Schema::drop('employee_passwords');
 	}
 

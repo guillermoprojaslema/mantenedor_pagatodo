@@ -31,13 +31,12 @@ class CreateIntranetincentivosTable extends Migration
             $table->foreignId('empleado_id')
                 ->constrained()
                 ->after('id');
-        });
-
-        Schema::table('intranetincentivos', function (Blueprint $table) {
             $table->foreignId('intranetranking_id')
                 ->constrained()
                 ->after('monto');
         });
+
+
     }
 
 
@@ -48,6 +47,12 @@ class CreateIntranetincentivosTable extends Migration
      */
     public function down()
     {
+        Schema::table('intranetincentivos', function (Blueprint $table) {
+            $table->dropForeign(['empleado_id']);
+            $table->dropForeign(['intranetranking_id']);
+
+        });
+
         Schema::drop('intranetincentivos');
     }
 

@@ -39,29 +39,18 @@ class CreateEmpleadosTable extends Migration
                 ->nullable()
                 ->constrained('sucursales')
                 ->after('codigo');
-        });
-
-        Schema::table('empleados', function (Blueprint $table) {
             $table->foreignId('grupo_id')
                 ->nullable()
                 ->constrained()
                 ->after('password');
-        });
 
-        Schema::table('empleados', function (Blueprint $table) {
             $table->foreignId('estado_id')
                 ->nullable()
                 ->constrained()
                 ->after('grupo_id');
-        });
-
-        Schema::table('empleados', function (Blueprint $table) {
             $table->foreignId('empresa_id')->nullable()
                 ->constrained()
                 ->after('estado_id');
-        });
-
-        Schema::table('empleados', function (Blueprint $table) {
             $table->foreignId('cashout_empresa_id')
                 ->nullable()
                 ->constrained()
@@ -78,6 +67,13 @@ class CreateEmpleadosTable extends Migration
      */
     public function down()
     {
+        Schema::table('empleados', function (Blueprint $table) {
+            $table->dropForeign(['sucursal_id']);
+            $table->dropForeign(['grupo_id']);
+            $table->dropForeign(['empresa_id']);
+            $table->dropForeign(['cashout_empresa_id']);
+        });
+
         Schema::drop('empleados');
     }
 

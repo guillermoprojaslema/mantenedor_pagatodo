@@ -40,6 +40,10 @@ class CreateCompanyThemesTable extends Migration
      */
     public function down()
     {
+        Schema::table('company_themes', function (Blueprint $table) {
+            $table->dropForeign(['recaudadora_id']);
+        });
+
         Schema::drop('company_themes');
     }
 

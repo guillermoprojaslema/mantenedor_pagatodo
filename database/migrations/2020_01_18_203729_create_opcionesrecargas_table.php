@@ -16,8 +16,10 @@ class CreateOpcionesrecargasTable extends Migration {
 		Schema::create('opcionesrecargas', function(Blueprint $table)
 		{
 			$table->id();
-			$table->float('monto', 10, 0)->nullable();
-			$table->integer('orden')->nullable();
+			$table->float('monto', 10, 0)
+                ->nullable();
+			$table->integer('orden')
+                ->nullable();
             $table->timestamps();
             $table->softDeletes();
 		});

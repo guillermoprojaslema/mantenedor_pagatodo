@@ -38,6 +38,12 @@ class CreateNullifyPaymentRequestsTable extends Migration
      */
     public function down()
     {
+
+        Schema::table('nullify_payment_requests', function (Blueprint $table) {
+            $table->dropForeign(['payment_id']);
+
+        });
+
         Schema::drop('nullify_payment_requests');
     }
 

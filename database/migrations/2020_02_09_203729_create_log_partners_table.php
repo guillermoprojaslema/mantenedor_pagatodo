@@ -47,6 +47,10 @@ class CreateLogPartnersTable extends Migration
      */
     public function down()
     {
+        Schema::table('log_partners', function (Blueprint $table) {
+            $table->dropForeign(['partner_id']);
+        });
+
         Schema::drop('log_partners');
     }
 

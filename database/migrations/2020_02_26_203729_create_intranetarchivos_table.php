@@ -33,6 +33,7 @@ class CreateIntranetarchivosTable extends Migration
         Schema::table('intranetarchivos', function (Blueprint $table) {
             $table->foreignId('empleado_id')
                 ->nullable()
+                ->constrained()
                 ->after('id');
         });
     }
@@ -45,6 +46,10 @@ class CreateIntranetarchivosTable extends Migration
      */
     public function down()
     {
+        Schema::table('intranetarchivos', function (Blueprint $table) {
+            $table->dropForeign(['empleado_id']);
+        });
+
         Schema::drop('intranetarchivos');
     }
 

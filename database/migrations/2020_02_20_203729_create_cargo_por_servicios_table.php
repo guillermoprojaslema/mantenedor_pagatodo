@@ -27,28 +27,23 @@ class CreateCargoPorServiciosTable extends Migration
                 ->nullable()
                 ->constrained()
                 ->after('id');
-        });
 
-        Schema::table('cargo_por_servicios', function (Blueprint $table) {
             $table->foreignId('empresa_id')
                 ->nullable()
                 ->constrained()
                 ->after('recaudadora_id');
-        });
 
-        Schema::table('cargo_por_servicios', function (Blueprint $table) {
             $table->foreignId('tipocargo_id')
                 ->nullable()
                 ->constrained()
                 ->after('empresa_id');
-        });
 
-        Schema::table('cargo_por_servicios', function (Blueprint $table) {
             $table->foreignId('cashout_empresa_id')
                 ->nullable()
                 ->constrained()
                 ->after('monto');
         });
+
     }
 
 
@@ -59,6 +54,13 @@ class CreateCargoPorServiciosTable extends Migration
      */
     public function down()
     {
+        Schema::table('cargo_por_servicios', function (Blueprint $table) {
+            $table->dropForeign(['recaudadora_id']);
+            $table->dropForeign(['empresa_id']);
+            $table->dropForeign(['tipocargo_id']);
+            $table->dropForeign(['cashout_empresa_id']);
+        });
+
         Schema::drop('cargo_por_servicios');
     }
 

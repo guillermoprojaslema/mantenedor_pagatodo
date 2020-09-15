@@ -29,19 +29,14 @@ class CreateCuentasTable extends Migration
         Schema::table('cuentas', function (Blueprint $table) {
             $table->foreignId('cliente_id')
                 ->constrained()
-                ->after('id')
-                ->index('cliente_id_index');
-        });
-
-        Schema::table('cuentas', function (Blueprint $table) {
+                ->after('id');
             $table->foreignId('empresa_id')
                 ->constrained()
                 ->after('cliente_id');
-        });
-        Schema::table('cuentas', function (Blueprint $table) {
             $table->foreignId('empleado_id')
                 ->constrained()
                 ->after('fecha_notificacion');
+            $table->index('cliente_id');
         });
     }
 
@@ -53,6 +48,13 @@ class CreateCuentasTable extends Migration
      */
     public function down()
     {
+        Schema::table('cuentas', function (Blueprint $table) {
+            $table->dropForeign(['cliente_id']);
+            $table->dropForeign(['empresa_id']);
+            $table->dropForeign(['empleado_id']);
+
+        });
+
         Schema::drop('cuentas');
     }
 

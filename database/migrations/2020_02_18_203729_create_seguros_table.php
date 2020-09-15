@@ -38,6 +38,10 @@ class CreateSegurosTable extends Migration {
 	 */
 	public function down()
 	{
+        Schema::table('seguros', function (Blueprint $table) {
+            $table->dropForeign(['empresa_id']);
+        });
+
 		Schema::drop('seguros');
 	}
 

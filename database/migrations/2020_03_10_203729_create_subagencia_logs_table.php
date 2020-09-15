@@ -54,6 +54,10 @@ class CreateSubagenciaLogsTable extends Migration
      */
     public function down()
     {
+        Schema::table('subagencia_logs', function (Blueprint $table) {
+            $table->dropForeign(['subagencia_id']);
+        });
+
         Schema::drop('subagencia_logs');
     }
 

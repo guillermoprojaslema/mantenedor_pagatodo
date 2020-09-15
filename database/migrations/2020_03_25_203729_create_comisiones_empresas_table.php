@@ -27,23 +27,14 @@ class CreateComisionesEmpresasTable extends Migration
                 ->constrained()
                 ->nullable()
                 ->after('id');
-        });
-
-        Schema::table('comisiones_empresas', function (Blueprint $table) {
             $table->foreignId('servicio_id')
                 ->constrained()
                 ->nullable()
                 ->after('empresa_id');
-        });
-
-        Schema::table('comisiones_empresas', function (Blueprint $table) {
             $table->foreignId('tipocargo_id')
                 ->constrained()
                 ->nullable()
                 ->after('servicio_id');
-        });
-
-        Schema::table('comisiones_empresas', function (Blueprint $table) {
             $table->foreignId('cashout_empresa_id')
                 ->constrained()
                 ->nullable()
@@ -59,6 +50,14 @@ class CreateComisionesEmpresasTable extends Migration
      */
     public function down()
     {
+        Schema::table('comisiones_empresas', function (Blueprint $table) {
+            $table->dropForeign(['empresa_id']);
+            $table->dropForeign(['servicio_id']);
+            $table->dropForeign(['tipocargo_id']);
+            $table->dropForeign(['cashout_empresa_id']);
+
+        });
+
         Schema::drop('comisiones_empresas');
     }
 

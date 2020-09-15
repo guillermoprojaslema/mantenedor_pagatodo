@@ -68,6 +68,10 @@ class CreateEmpresasTable extends Migration
      */
     public function down()
     {
+        Schema::table('empresas', function (Blueprint $table) {
+            $table->dropForeign(['categoriaempresa_id']);
+        });
+
         Schema::drop('empresas');
     }
 

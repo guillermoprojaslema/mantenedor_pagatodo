@@ -26,9 +26,6 @@ class CreatePaymentAuthorizationsTable extends Migration
                 ->constrained('pagos')
                 ->nullable()
                 ->after('id');
-        });
-
-        Schema::table('payment_authorizations', function (Blueprint $table) {
             $table->foreignId('sucursal_id')
                 ->constrained('sucursales')
                 ->nullable()
@@ -44,6 +41,12 @@ class CreatePaymentAuthorizationsTable extends Migration
      */
     public function down()
     {
+
+        Schema::table('payment_authorizations', function (Blueprint $table) {
+            $table->dropForeign(['payment_id']);
+            $table->dropForeign(['sucursal_id']);
+        });
+
         Schema::drop('payment_authorizations');
     }
 

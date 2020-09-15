@@ -40,6 +40,10 @@ class CreateUmbrellarankingsTable extends Migration
      */
     public function down()
     {
+        Schema::table('umbrellarankings', function (Blueprint $table) {
+            $table->dropForeign(['campana_id']);
+        });
+
         Schema::drop('umbrellarankings');
     }
 

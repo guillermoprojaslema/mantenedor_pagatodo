@@ -51,6 +51,10 @@ class CreateCashoutNominasTable extends Migration
      */
     public function down()
     {
+        Schema::table('cashout_nominas', function (Blueprint $table) {
+            $table->dropForeign(['cashout_empresa_id']);
+        });
+
         Schema::drop('cashout_nominas');
     }
 

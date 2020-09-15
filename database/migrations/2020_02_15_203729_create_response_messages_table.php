@@ -38,6 +38,11 @@ class CreateResponseMessagesTable extends Migration
      */
     public function down()
     {
+        Schema::table('response_messages', function (Blueprint $table) {
+            $table->dropForeign(['partner_id'])
+                ->constrained('empresas');
+        });
+
         Schema::drop('response_messages');
     }
 

@@ -51,6 +51,10 @@ class CreatePromocionesTable extends Migration {
 	 */
 	public function down()
 	{
+        Schema::table('promociones', function (Blueprint $table) {
+            $table->dropForeign(['empresa_id']);
+        });
+
 		Schema::drop('promociones');
 	}
 

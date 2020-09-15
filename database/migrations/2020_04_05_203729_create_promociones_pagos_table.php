@@ -28,13 +28,11 @@ class CreatePromocionesPagosTable extends Migration
             $table->foreignId('pago_id')
                 ->constrained()
                 ->after('id');
-        });
-
-        Schema::table('promociones_pagos', function (Blueprint $table) {
             $table->foreignId('promocion_id')
                 ->constrained('promociones')
                 ->after('pago_id');
         });
+
 
 
     }
@@ -47,6 +45,11 @@ class CreatePromocionesPagosTable extends Migration
      */
     public function down()
     {
+        Schema::table('promociones_pagos', function (Blueprint $table) {
+            $table->dropForeign(['pago_id']);
+            $table->dropForeign(['promocion_id']);
+        });
+
         Schema::drop('promociones_pagos');
     }
 

@@ -19,8 +19,7 @@ class CreateCampanasTable extends Migration
             $table->string('nombre', 50)
                 ->nullable();
             $table->time('umbrella')
-                ->nullable()
-                ->default(0);
+                ->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -40,6 +39,11 @@ class CreateCampanasTable extends Migration
      */
     public function down()
     {
+
+        Schema::table('campanas', function (Blueprint $table) {
+            $table->dropForeign(['estadocampana_id']);
+        });
+
         Schema::drop('campanas');
     }
 

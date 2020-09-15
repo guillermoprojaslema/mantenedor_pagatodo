@@ -16,25 +16,22 @@ class CreateEmployeePartnersTable extends Migration
     {
         Schema::create('employee_partners', function (Blueprint $table) {
             $table->id();
-			$table->timestampsTz();
-			$table->softDeletesTz();
+            $table->timestampsTz();
+            $table->softDeletesTz();
 
-		});
+        });
 
         Schema::table('employee_partners', function (Blueprint $table) {
             $table->foreignId('partner_id')
                 ->nullable()
                 ->constrained('empresas')
-                ->after('id')
-                ->index('employee_partners_partner_id_idx');;
-        });
-
-        Schema::table('employee_partners', function (Blueprint $table) {
+                ->after('id');
             $table->foreignId('employee_id')
                 ->nullable()
                 ->constrained('empleados')
-                ->after('partner_id')
-                ->index('employee_partners_employee_id_idx');
+                ->after('partner_id');
+            $table->index('partner_id');
+            $table->index('employee_id');
         });
     }
 
@@ -46,6 +43,14 @@ class CreateEmployeePartnersTable extends Migration
      */
     public function down()
     {
+
+        Schema::table('employee_partners', function (Blueprint $table) {
+            $table->dropForeign(['partner_id']);
+            $table->dropForeign(['employee_id']);
+            $table->dropIndex(['partner_id']);
+            $table->dropIndex(['employee_id']);
+        });
+
         Schema::drop('employee_partners');
     }
 

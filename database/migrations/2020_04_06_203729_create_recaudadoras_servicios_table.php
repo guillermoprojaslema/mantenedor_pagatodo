@@ -25,9 +25,6 @@ class CreateRecaudadorasServiciosTable extends Migration
                 ->constrained()
                 ->nullable()
                 ->after('id');
-        });
-
-        Schema::table('recaudadoras_servicios', function (Blueprint $table) {
             $table->foreignId('servicio_id')
                 ->constrained()
                 ->nullable()
@@ -43,6 +40,12 @@ class CreateRecaudadorasServiciosTable extends Migration
      */
     public function down()
     {
+        Schema::table('recaudadoras_servicios', function (Blueprint $table) {
+            $table->dropForeign(['recaudadora_id']);
+            $table->dropForeign(['servicio_id']);
+
+        });
+
         Schema::drop('recaudadoras_servicios');
     }
 

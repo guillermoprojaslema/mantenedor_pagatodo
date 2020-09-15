@@ -39,6 +39,10 @@ class CreateUmbrellaCodesTable extends Migration
      */
     public function down()
     {
+        Schema::table('umbrella_codes', function (Blueprint $table) {
+            $table->dropForeign(['payment_id']);
+        });
+
         Schema::drop('umbrella_codes');
     }
 

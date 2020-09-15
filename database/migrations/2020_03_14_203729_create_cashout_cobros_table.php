@@ -35,16 +35,10 @@ class CreateCashoutCobrosTable extends Migration
                 ->nullable()
                 ->constrained()
                 ->after('id');
-        });
-
-        Schema::table('cashout_cobros', function (Blueprint $table) {
             $table->foreignId('cashout_empresa_id')
                 ->nullable()
                 ->constrained()
                 ->after('cashout_nomina_id');
-        });
-
-        Schema::table('cashout_cobros', function (Blueprint $table) {
             $table->foreignId('sucursal_id')->nullable()
                 ->constrained('sucursales')
                 ->after('cashout_empresa_id');
@@ -59,6 +53,12 @@ class CreateCashoutCobrosTable extends Migration
      */
     public function down()
     {
+        Schema::table('cashout_cobros', function (Blueprint $table) {
+            $table->dropForeign(['cashout_nomina_id']);
+            $table->dropForeign(['cashout_empresa_id']);
+            $table->dropForeign(['sucursal_id']);
+        });
+
         Schema::drop('cashout_cobros');
     }
 

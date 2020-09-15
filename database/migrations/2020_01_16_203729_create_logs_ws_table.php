@@ -16,10 +16,14 @@ class CreateLogsWsTable extends Migration
     {
         Schema::create('logs_ws', function (Blueprint $table) {
             $table->id();
-            $table->text('input')->nullable();
-            $table->text('output')->nullable();
-            $table->string('url')->nullable();
-            $table->text('payload')->nullable();
+            $table->text('input')
+                ->nullable();
+            $table->text('output')
+                ->nullable();
+            $table->string('url')
+                ->nullable();
+            $table->text('payload')
+                ->nullable();
             $table->timestampsTz();
         });
     }

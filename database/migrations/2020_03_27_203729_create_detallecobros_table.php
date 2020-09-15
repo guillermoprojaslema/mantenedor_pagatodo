@@ -40,6 +40,10 @@ class CreateDetallecobrosTable extends Migration
      */
     public function down()
     {
+        Schema::table('detallecobros', function (Blueprint $table) {
+            $table->dropForeign(['cobro_id']);
+        });
+
         Schema::drop('detallecobros');
     }
 

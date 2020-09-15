@@ -55,6 +55,10 @@ class CreateUmbrellapuntosTable extends Migration
      */
     public function down()
     {
+        Schema::table('umbrellapuntos', function (Blueprint $table) {
+            $table->dropForeign(['umbrellacliente_id']);
+        });
+
         Schema::drop('umbrellapuntos');
     }
 

@@ -26,16 +26,10 @@ class CreatePaymentsAmountsTable extends Migration
                 ->constrained('empresas')
                 ->nullable()
                 ->after('id');
-        });
-
-        Schema::table('payments_amounts', function (Blueprint $table) {
             $table->foreignId('money_id')
                 ->constrained('monedas')
                 ->nullable()
                 ->after('partner_id');
-        });
-
-        Schema::table('payments_amounts', function (Blueprint $table) {
             $table->foreignId('payment_method_id')
                 ->constrained('tipopagos')
                 ->nullable()
@@ -51,6 +45,12 @@ class CreatePaymentsAmountsTable extends Migration
      */
     public function down()
     {
+        Schema::table('payments_amounts', function (Blueprint $table) {
+            $table->dropForeign(['partner_id']);
+            $table->dropForeign(['money_id']);
+            $table->dropForeign(['payment_method_id']);
+        });
+
         Schema::drop('payments_amounts');
     }
 

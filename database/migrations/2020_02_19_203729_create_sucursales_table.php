@@ -58,7 +58,8 @@ class CreateSucursalesTable extends Migration
         });
 
         Schema::table('sucursales', function (Blueprint $table) {
-            $table->foreignId('recaudadora_id')->nullable()
+            $table->foreignId('recaudadora_id')
+                ->nullable()
                 ->constrained()
                 ->after('numero');
         });
@@ -72,6 +73,10 @@ class CreateSucursalesTable extends Migration
      */
     public function down()
     {
+        Schema::table('sucursales', function (Blueprint $table) {
+            $table->dropForeign(['recaudadora_id']);
+        });
+
         Schema::drop('sucursales');
     }
 

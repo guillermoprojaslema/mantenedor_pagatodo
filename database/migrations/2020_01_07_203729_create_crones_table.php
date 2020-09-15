@@ -16,8 +16,10 @@ class CreateCronesTable extends Migration
     {
         Schema::create('crones', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 50)->nullable();
-            $table->string('comentario', 200)->nullable();
+            $table->string('nombre', 50)
+                ->nullable();
+            $table->string('comentario', 200)
+                ->nullable();
             $table->dateTime('fecha_inicio')->nullable();
             $table->dateTime('fecha_termino')->nullable();
             $table->timestamps();

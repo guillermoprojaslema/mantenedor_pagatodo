@@ -38,6 +38,10 @@ class CreateCedulascitisTable extends Migration
      */
     public function down()
     {
+        Schema::table('cedulascitis', function (Blueprint $table) {
+            $table->dropForeign(['empresa_id']);
+        });
+
         Schema::drop('cedulascitis');
     }
 

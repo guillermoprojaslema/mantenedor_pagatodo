@@ -24,9 +24,6 @@ class CreateMediopagosEmpresasTable extends Migration {
             $table->foreignId('empresa_id')
                 ->constrained()
                 ->after('id');
-        });
-
-        Schema::table('mediopagos_empresas', function (Blueprint $table) {
             $table->foreignId('mediopago_id')
                 ->constrained()
                 ->after('empresa_id');
@@ -41,6 +38,11 @@ class CreateMediopagosEmpresasTable extends Migration {
 	 */
 	public function down()
 	{
+        Schema::table('mediopagos_empresas', function (Blueprint $table) {
+            $table->dropForeign(['empresa_id']);
+            $table->dropForeign(['mediopago_id']);
+        });
+
 		Schema::drop('mediopagos_empresas');
 	}
 

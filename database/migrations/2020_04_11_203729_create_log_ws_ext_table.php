@@ -35,6 +35,7 @@ class CreateLogWsExtTable extends Migration
                 ->nullable()
                 ->after('id');
         });
+
     }
 
 

@@ -16,7 +16,8 @@ class CreateEstadocampanasTable extends Migration
     {
         Schema::create('estadocampanas', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 50)->nullable();
+            $table->string('nombre', 50)
+                ->nullable();
             $table->timestamps();
             $table->softDeletes();
 

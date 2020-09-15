@@ -24,9 +24,6 @@ class CreateIdentificadorcobrosEmpresasTable extends Migration
             $table->foreignId('identificadorcobro_id')
                 ->constrained()
                 ->after('id');
-        });
-
-        Schema::table('identificadorcobros_empresas', function (Blueprint $table) {
             $table->foreignId('empresa_id')
                 ->constrained()
                 ->after('identificadorcobro_id');
@@ -41,6 +38,11 @@ class CreateIdentificadorcobrosEmpresasTable extends Migration
      */
     public function down()
     {
+        Schema::table('identificadorcobros_empresas', function (Blueprint $table) {
+            $table->dropForeign(['identificadorcobro_id']);
+            $table->dropForeign(['empresa_id']);
+        });
+
         Schema::drop('identificadorcobros_empresas');
     }
 

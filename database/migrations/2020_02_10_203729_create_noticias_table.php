@@ -44,6 +44,10 @@ class CreateNoticiasTable extends Migration
      */
     public function down()
     {
+        Schema::table('noticias', function (Blueprint $table) {
+            $table->dropForeign(['campana_id']);
+        });
+
         Schema::drop('noticias');
     }
 
