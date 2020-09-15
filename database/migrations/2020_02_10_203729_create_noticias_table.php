@@ -16,16 +16,23 @@ class CreateNoticiasTable extends Migration
     {
         Schema::create('noticias', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo', 100)->nullable();
-            $table->text('bajada')->nullable();
-            $table->string('imagen', 250)->nullable();
-            $table->text('texto')->nullable();
+            $table->string('titulo', 100)
+                ->nullable();
+            $table->text('bajada')
+                ->nullable();
+            $table->string('imagen', 250)
+                ->nullable();
+            $table->text('texto')
+                ->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
 
         Schema::table('noticias', function (Blueprint $table) {
-            $table->foreignId('campana_id')->nullable()->constrained()->after('texto');
+            $table->foreignId('campana_id')
+                ->nullable()
+                ->constrained()
+                ->after('texto');
         });
     }
 

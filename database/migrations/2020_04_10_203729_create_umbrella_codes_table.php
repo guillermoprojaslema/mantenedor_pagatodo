@@ -16,7 +16,8 @@ class CreateUmbrellaCodesTable extends Migration
     {
         Schema::create('umbrella_codes', function (Blueprint $table) {
             $table->id();
-            $table->string('code_id', 30)->unique('umbrella_codes_code_id_key');
+            $table->string('code_id', 30)
+                ->unique('umbrella_codes_code_id_key');
             $table->boolean('status');
             $table->timestamps();
             $table->softDeletes();

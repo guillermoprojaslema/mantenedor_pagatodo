@@ -21,11 +21,17 @@ class CreateEmpresasOpcionesrecargasTable extends Migration
         });
 
         Schema::table('empresas_opcionesrecargas', function (Blueprint $table) {
-            $table->foreignId('empresa_id')->nullable()->constrained()->after('id');
+            $table->foreignId('empresa_id')
+                ->nullable()
+                ->constrained()
+                ->after('id');
         });
 
         Schema::table('empresas_opcionesrecargas', function (Blueprint $table) {
-            $table->foreignId('opcionesrecarga_id')->nullable()->constrained()->after('empresa_id');
+            $table->foreignId('opcionesrecarga_id')
+                ->nullable()
+                ->constrained()
+                ->after('empresa_id');
         });
     }
 

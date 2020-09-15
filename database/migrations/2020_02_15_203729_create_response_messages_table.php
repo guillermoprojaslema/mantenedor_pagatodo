@@ -23,7 +23,10 @@ class CreateResponseMessagesTable extends Migration
         });
 
         Schema::table('response_messages', function (Blueprint $table) {
-            $table->foreignId('partner_id')->nullable()->constrained('empresas')->after('id');
+            $table->foreignId('partner_id')
+                ->nullable()
+                ->constrained('empresas')
+                ->after('id');
         });
     }
 

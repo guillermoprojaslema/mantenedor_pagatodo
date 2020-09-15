@@ -17,13 +17,16 @@ class CreateOficinasTable extends Migration {
 		{
 			$table->id();
 			$table->string('nombre', 50);
-			$table->integer('cantidad')->nullable();
+			$table->integer('cantidad')
+                ->nullable();
             $table->timestamps();
             $table->softDeletes();
 		});
 
         Schema::table('oficinas', function (Blueprint $table) {
-            $table->foreignId('empresa_id')->constrained()->after('id');
+            $table->foreignId('empresa_id')
+                ->constrained()
+                ->after('id');
         });
 	}
 

@@ -16,15 +16,21 @@ class CreateSubagenciasTable extends Migration
     {
         Schema::create('subagencias', function (Blueprint $table) {
             $table->id();
-            $table->float('saldo_actual', 10, 0)->nullable();
-            $table->float('saldo_total', 10, 0)->nullable();
-            $table->boolean('activable')->nullable()->default(1);
+            $table->float('saldo_actual', 10, 0)
+                ->nullable();
+            $table->float('saldo_total', 10, 0)
+                ->nullable();
+            $table->boolean('activable')
+                ->nullable()
+                ->default(1);
             $table->timestamps();
             $table->softDeletes();
         });
 
         Schema::table('subagencias', function (Blueprint $table) {
-            $table->foreignId('sucursal_id')->constrained('sucursales')->after('id');
+            $table->foreignId('sucursal_id')
+                ->constrained('sucursales')
+                ->after('id');
         });
     }
 

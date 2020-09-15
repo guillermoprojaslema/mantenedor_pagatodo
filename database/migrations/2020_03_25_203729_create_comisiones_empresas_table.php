@@ -16,7 +16,8 @@ class CreateComisionesEmpresasTable extends Migration
     {
         Schema::create('comisiones_empresas', function (Blueprint $table) {
             $table->id();
-            $table->float('monto', 10, 0)->nullable();
+            $table->float('monto', 10, 0)
+                ->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

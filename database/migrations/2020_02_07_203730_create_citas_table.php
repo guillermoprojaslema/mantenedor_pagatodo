@@ -18,16 +18,22 @@ class CreateCitasTable extends Migration
             $table->id();
             $table->string('cliente_cedula', 20);
             $table->date('fecha_asignada');
-            $table->string('nombre_cliente', 30)->nullable();
-            $table->string('apellido_cliente', 30)->nullable();
-            $table->string('fecha_nacimiento', 10)->nullable();
-            $table->boolean('estado')->nullable();
+            $table->string('nombre_cliente', 30)
+                ->nullable();
+            $table->string('apellido_cliente', 30)
+                ->nullable();
+            $table->string('fecha_nacimiento', 10)
+                ->nullable();
+            $table->boolean('estado')
+                ->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
 
         Schema::table('citas', function (Blueprint $table) {
-            $table->foreignId('oficina_id')->constrained()->after('id');
+            $table->foreignId('oficina_id')
+                ->constrained()
+                ->after('id');
         });
 
     }

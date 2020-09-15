@@ -22,7 +22,9 @@ class CreateEmployeePasswordsTable extends Migration {
 		});
 
         Schema::table('employee_passwords', function (Blueprint $table) {
-            $table->foreignId('empleado_id')->nullable()->after('id');
+            $table->foreignId('empleado_id')
+                ->nullable()
+                ->after('id');
         });
 	}
 

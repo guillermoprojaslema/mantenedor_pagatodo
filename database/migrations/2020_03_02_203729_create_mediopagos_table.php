@@ -17,13 +17,16 @@ class CreateMediopagosTable extends Migration {
 		{
 			$table->id();
 			$table->string('nombre', 100);
-			$table->string('payment_code', 100)->nullable();
+			$table->string('payment_code', 100)
+                ->nullable();
             $table->timestamps();
             $table->softDeletes();
 		});
 
         Schema::table('mediopagos', function (Blueprint $table) {
-            $table->foreignId('tipopago_id')->nullable()->after('id');
+            $table->foreignId('tipopago_id')
+                ->nullable()
+                ->after('id');
         });
 	}
 

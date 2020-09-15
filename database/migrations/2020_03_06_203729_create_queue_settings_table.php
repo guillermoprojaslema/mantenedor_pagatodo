@@ -16,17 +16,23 @@ class CreateQueueSettingsTable extends Migration {
 		Schema::create('queue_settings', function(Blueprint $table)
 		{
 			$table->id();
-			$table->boolean('enabled')->nullable()->default(1);
+			$table->boolean('enabled')
+                ->nullable()
+                ->default(1);
             $table->timestamps();
             $table->softDeletes();
 		});
 
         Schema::table('queue_settings', function (Blueprint $table) {
-            $table->foreignId('partner_id')->constrained('empresas')->after('id');
+            $table->foreignId('partner_id')
+                ->constrained('empresas')
+                ->after('id');
         });
 
         Schema::table('queue_settings', function (Blueprint $table) {
-            $table->foreignId('branch_id')->constrained('sucursales')->after('partner_id');
+            $table->foreignId('branch_id')
+                ->constrained('sucursales')
+                ->after('partner_id');
         });
 	}
 

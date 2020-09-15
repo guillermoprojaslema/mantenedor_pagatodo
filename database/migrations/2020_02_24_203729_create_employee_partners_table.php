@@ -17,15 +17,24 @@ class CreateEmployeePartnersTable extends Migration
         Schema::create('employee_partners', function (Blueprint $table) {
             $table->id();
 			$table->timestampsTz();
-			$table->softDeletesTz()->nullable();
+			$table->softDeletesTz();
+
 		});
 
         Schema::table('employee_partners', function (Blueprint $table) {
-            $table->foreignId('partner_id')->nullable()->constrained('empresas')->after('id')->index('employee_partners_partner_id_idx');;
+            $table->foreignId('partner_id')
+                ->nullable()
+                ->constrained('empresas')
+                ->after('id')
+                ->index('employee_partners_partner_id_idx');;
         });
 
         Schema::table('employee_partners', function (Blueprint $table) {
-            $table->foreignId('employee_id')->nullable()->constrained('empleados')->after('partner_id')->index('employee_partners_employee_id_idx');
+            $table->foreignId('employee_id')
+                ->nullable()
+                ->constrained('empleados')
+                ->after('partner_id')
+                ->index('employee_partners_employee_id_idx');
         });
     }
 

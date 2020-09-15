@@ -16,13 +16,20 @@ class CreateCashoutPagosTable extends Migration
     {
         Schema::create('cashout_pagos', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('fecha')->nullable();
-            $table->float('monto', 10, 0)->nullable();
-            $table->integer('numero_recibo')->nullable();
-            $table->string('extras', 100)->nullable();
-            $table->string('cedula', 100)->nullable();
-            $table->string('cliente_nombre', 100)->nullable();
-            $table->string('tipo', 250)->nullable();
+            $table->dateTime('fecha')
+                ->nullable();
+            $table->float('monto', 10, 0)
+                ->nullable();
+            $table->integer('numero_recibo')
+                ->nullable();
+            $table->string('extras', 100)
+                ->nullable();
+            $table->string('cedula', 100)
+                ->nullable();
+            $table->string('cliente_nombre', 100)
+                ->nullable();
+            $table->string('tipo', 250)
+                ->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

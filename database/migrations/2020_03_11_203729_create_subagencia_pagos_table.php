@@ -16,28 +16,45 @@ class CreateSubagenciaPagosTable extends Migration
     {
         Schema::create('subagencia_pagos', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('fecha')->nullable();
-            $table->float('monto', 10, 0)->nullable();
-            $table->float('saldo_actual', 10, 0)->nullable();
-            $table->string('observacion')->nullable();
-            $table->string('numero_deposito', 200)->nullable();
-            $table->string('cuenta', 80)->nullable();
-            $table->boolean('valija')->nullable();
-            $table->boolean('reintegracion')->nullable();
+            $table->dateTime('fecha')
+                ->nullable();
+            $table->float('monto', 10, 0)
+                ->nullable();
+            $table->float('saldo_actual', 10, 0)
+                ->nullable();
+            $table->string('observacion')
+                ->nullable();
+            $table->string('numero_deposito', 200)
+                ->nullable();
+            $table->string('cuenta', 80)
+                ->nullable();
+            $table->boolean('valija')
+                ->nullable();
+            $table->boolean('reintegracion')
+                ->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
 
         Schema::table('subagencia_pagos', function (Blueprint $table) {
-            $table->foreignId('subagencia_id')->nullable()->constrained()->after('id');
+            $table->foreignId('subagencia_id')
+                ->nullable()
+                ->constrained()
+                ->after('id');
         });
 
         Schema::table('subagencia_pagos', function (Blueprint $table) {
-            $table->foreignId('estadopago_id')->nullable()->constrained()->after('saldo_actual');
+            $table->foreignId('estadopago_id')
+                ->nullable()
+                ->constrained()
+                ->after('saldo_actual');
         });
 
         Schema::table('subagencia_pagos', function (Blueprint $table) {
-            $table->foreignId('banco_id')->nullable()->constrained()->after('observacion');
+            $table->foreignId('banco_id')
+                ->nullable()
+                ->constrained()
+                ->after('observacion');
         });
     }
 

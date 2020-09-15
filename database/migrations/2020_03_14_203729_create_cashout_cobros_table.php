@@ -16,26 +16,38 @@ class CreateCashoutCobrosTable extends Migration
     {
         Schema::create('cashout_cobros', function (Blueprint $table) {
             $table->id();
-            $table->float('monto', 10, 0)->nullable();
+            $table->float('monto', 10, 0)
+                ->nullable();
             $table->bigInteger('validador');
             $table->string('cedula', 100);
             $table->string('cliente_nombre', 100);
-            $table->integer('estado')->nullable()->default(1);
-            $table->char('descripcion', 50)->nullable();
+            $table->integer('estado')
+                ->nullable()
+                ->default(1);
+            $table->char('descripcion', 50)
+                ->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
 
         Schema::table('cashout_cobros', function (Blueprint $table) {
-            $table->foreignId('cashout_nomina_id')->nullable()->constrained()->after('id');
+            $table->foreignId('cashout_nomina_id')
+                ->nullable()
+                ->constrained()
+                ->after('id');
         });
 
         Schema::table('cashout_cobros', function (Blueprint $table) {
-            $table->foreignId('cashout_empresa_id')->nullable()->constrained()->after('cashout_nomina_id');
+            $table->foreignId('cashout_empresa_id')
+                ->nullable()
+                ->constrained()
+                ->after('cashout_nomina_id');
         });
 
         Schema::table('cashout_cobros', function (Blueprint $table) {
-            $table->foreignId('sucursal_id')->nullable()->constrained('sucursales')->after('cashout_empresa_id');
+            $table->foreignId('sucursal_id')->nullable()
+                ->constrained('sucursales')
+                ->after('cashout_empresa_id');
         });
     }
 

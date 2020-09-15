@@ -21,11 +21,17 @@ class CreateRecaudadorasEmpresasTable extends Migration {
 		});
 
         Schema::table('recaudadoras_empresas', function (Blueprint $table) {
-            $table->foreignId('recaudadora_id')->nullable()->constrained()->after('id');
+            $table->foreignId('recaudadora_id')
+                ->nullable()
+                ->constrained()
+                ->after('id');
         });
 
         Schema::table('recaudadoras_empresas', function (Blueprint $table) {
-            $table->foreignId('empresa_id')->nullable()->constrained()->after('recaudadora_id');
+            $table->foreignId('empresa_id')
+                ->nullable()
+                ->constrained()
+                ->after('recaudadora_id');
         });
 	}
 

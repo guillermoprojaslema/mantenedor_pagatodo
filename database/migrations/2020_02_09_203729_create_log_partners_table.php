@@ -16,16 +16,24 @@ class CreateLogPartnersTable extends Migration
     {
         Schema::create('log_partners', function (Blueprint $table) {
             $table->id();
-            $table->text('request')->nullable();
-            $table->text('response')->nullable();
-            $table->text('requested_url')->nullable();
-            $table->string('requested_method', 2044)->nullable();
+            $table->text('request')
+                ->nullable();
+            $table->text('response')
+                ->nullable();
+            $table->text('requested_url')
+                ->nullable();
+            $table->string('requested_method', 2044)
+                ->nullable();
             $table->timestampsTz();
+            $table->softDeletesTz();
 
         });
 
         Schema::table('log_partners', function (Blueprint $table) {
-            $table->foreignId('partner_id')->nullable()->constrained('empresas')->after('id');
+            $table->foreignId('partner_id')
+                ->nullable()
+                ->constrained('empresas')
+                ->after('id');
         });
 
 

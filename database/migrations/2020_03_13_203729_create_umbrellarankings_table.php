@@ -16,15 +16,19 @@ class CreateUmbrellarankingsTable extends Migration
     {
         Schema::create('umbrellarankings', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('fecha_inicio')->nullable();
-            $table->dateTime('fecha_termino')->nullable();
+            $table->dateTime('fecha_inicio')
+                ->nullable();
+            $table->dateTime('fecha_termino')
+                ->nullable();
             $table->timestamps();
             $table->softDeletes();
 
         });
 
         Schema::table('umbrellarankings', function (Blueprint $table) {
-            $table->foreignId('campana_id')->nullable()->constrained()->after('id');
+            $table->foreignId('campana_id')->nullable()
+                ->constrained()
+                ->after('id');
         });
     }
 

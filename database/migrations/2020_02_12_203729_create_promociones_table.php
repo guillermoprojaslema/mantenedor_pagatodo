@@ -17,19 +17,29 @@ class CreatePromocionesTable extends Migration {
 		{
 			$table->id();
 			$table->string('nombre', 200);
-			$table->dateTime('fecha_desde')->nullable();
-			$table->dateTime('fecha_hasta')->nullable();
-			$table->integer('contador_pagos')->nullable();
-			$table->integer('premios')->nullable();
-			$table->integer('contador_premios')->nullable();
-			$table->text('descripcion')->nullable();
-			$table->float('monto', 10, 0)->nullable();
+			$table->dateTime('fecha_desde')
+                ->nullable();
+			$table->dateTime('fecha_hasta')
+                ->nullable();
+			$table->integer('contador_pagos')
+                ->nullable();
+			$table->integer('premios')
+                ->nullable();
+			$table->integer('contador_premios')
+                ->nullable();
+			$table->text('descripcion')
+                ->nullable();
+			$table->float('monto', 10, 0)
+                ->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
 
         Schema::table('promociones', function (Blueprint $table) {
-            $table->foreignId('empresa_id')->nullable()->constrained()->after('id');
+            $table->foreignId('empresa_id')
+                ->nullable()
+                ->constrained()
+                ->after('id');
         });
 	}
 

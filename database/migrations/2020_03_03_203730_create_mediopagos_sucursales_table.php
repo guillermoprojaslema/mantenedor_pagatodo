@@ -21,11 +21,15 @@ class CreateMediopagosSucursalesTable extends Migration {
 		});
 
         Schema::table('mediopagos_sucursales', function (Blueprint $table) {
-            $table->foreignId('sucursal_id')->constrained('sucursales')->after('id');
+            $table->foreignId('sucursal_id')
+                ->constrained('sucursales')
+                ->after('id');
         });
 
         Schema::table('mediopagos_sucursales', function (Blueprint $table) {
-            $table->foreignId('mediopago_id')->constrained()->after('sucursal_id');
+            $table->foreignId('mediopago_id')
+                ->constrained()
+                ->after('sucursal_id');
         });
 	}
 

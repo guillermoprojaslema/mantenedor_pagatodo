@@ -16,7 +16,8 @@ class CreateDepositValuesTable extends Migration {
 		Schema::create('deposit_values', function(Blueprint $table)
 		{
 			$table->id();
-			$table->boolean('just_virtual_employees')->default(0);
+			$table->boolean('just_virtual_employees')
+                ->default(0);
             $table->timestampsTz();
             $table->softDeletesTz();
 		});

@@ -16,19 +16,28 @@ class CreateCashoutNominasTable extends Migration
     {
         Schema::create('cashout_nominas', function (Blueprint $table) {
             $table->id();
-            $table->float('monto', 10, 0)->nullable();
-            $table->integer('validacion')->nullable();
-            $table->integer('cantidad')->nullable();
-            $table->dateTime('fecha')->nullable();
-            $table->text('observacion')->nullable();
-            $table->text('extras')->nullable();
-            $table->text('descripcion')->nullable();
+            $table->float('monto', 10, 0)
+                ->nullable();
+            $table->integer('validacion')
+                ->nullable();
+            $table->integer('cantidad')
+                ->nullable();
+            $table->dateTime('fecha')
+                ->nullable();
+            $table->text('observacion')
+                ->nullable();
+            $table->text('extras')
+                ->nullable();
+            $table->text('descripcion')
+                ->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
 
         Schema::table('cashout_nominas', function (Blueprint $table) {
-            $table->foreignId('cashout_empresa_id')->constrained()->after('id');
+            $table->foreignId('cashout_empresa_id')
+                ->constrained()
+                ->after('id');
         });
     }
 

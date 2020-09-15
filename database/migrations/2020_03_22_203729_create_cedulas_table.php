@@ -22,15 +22,24 @@ class CreateCedulasTable extends Migration
         });
 
         Schema::table('cedulas', function (Blueprint $table) {
-            $table->foreignId('empresa_id')->constrained()->nullable()->after('id');
+            $table->foreignId('empresa_id')
+                ->constrained()
+                ->nullable()
+                ->after('id');
         });
 
         Schema::table('cedulas', function (Blueprint $table) {
-            $table->foreignId('servicio_id')->constrained()->nullable()->after('empresa_id');
+            $table->foreignId('servicio_id')
+                ->constrained()
+                ->nullable()
+                ->after('empresa_id');
         });
 
         Schema::table('cedulas', function (Blueprint $table) {
-            $table->foreignId('tipopago_id')->constrained()->nullable()->after('servicio_id');
+            $table->foreignId('tipopago_id')
+                ->constrained()
+                ->nullable()
+                ->after('servicio_id');
         });
     }
 

@@ -16,7 +16,8 @@ class CreatePidihCitasTable extends Migration
     {
         Schema::create('pidih_citas', function (Blueprint $table) {
             $table->id();
-            $table->date('fecha')->index('pidih_citas_fecha_idx');
+            $table->date('fecha')
+                ->index('pidih_citas_fecha_idx');
             $table->timestampsTz();
             $table->softDeletesTz();
         });

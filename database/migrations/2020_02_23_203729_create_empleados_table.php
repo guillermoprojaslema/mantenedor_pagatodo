@@ -18,34 +18,55 @@ class CreateEmpleadosTable extends Migration
             $table->id();
             $table->string('nombre', 100);
             $table->string('cedula', 100);
-            $table->string('codigo', 100)->nullable();
-            $table->string('usuario', 100)->nullable();
-            $table->string('password', 100)->nullable();
-            $table->string('terminal', 20)->nullable();
+            $table->string('codigo', 100)
+                ->nullable();
+            $table->string('usuario', 100)
+                ->nullable();
+            $table->string('password', 100)
+                ->nullable();
+            $table->string('terminal', 20)
+                ->nullable();
             $table->text('tokenId')->nullable();
-            $table->boolean('es_virtual')->nullable()->default(0);
+            $table->boolean('es_virtual')
+                ->nullable()
+                ->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
 
         Schema::table('empleados', function (Blueprint $table) {
-            $table->foreignId('sucursal_id')->nullable()->constrained('sucursales')->after('codigo');
+            $table->foreignId('sucursal_id')
+                ->nullable()
+                ->constrained('sucursales')
+                ->after('codigo');
         });
 
         Schema::table('empleados', function (Blueprint $table) {
-            $table->foreignId('grupo_id')->nullable()->constrained()->after('password');
+            $table->foreignId('grupo_id')
+                ->nullable()
+                ->constrained()
+                ->after('password');
         });
 
         Schema::table('empleados', function (Blueprint $table) {
-            $table->foreignId('estado_id')->nullable()->constrained()->after('grupo_id');
+            $table->foreignId('estado_id')
+                ->nullable()
+                ->constrained()
+                ->after('grupo_id');
         });
 
         Schema::table('empleados', function (Blueprint $table) {
-            $table->foreignId('empresa_id')->nullable()->constrained()->after('estado_id');
+            $table->foreignId('empresa_id')->nullable()
+                ->constrained()
+                ->after('estado_id');
         });
 
         Schema::table('empleados', function (Blueprint $table) {
-            $table->foreignId('cashout_empresa_id')->nullable()->constrained()->default(0)->after('empresa_id');
+            $table->foreignId('cashout_empresa_id')
+                ->nullable()
+                ->constrained()
+                ->default(0)
+                ->after('empresa_id');
         });
     }
 

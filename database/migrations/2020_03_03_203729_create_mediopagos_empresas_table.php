@@ -21,11 +21,15 @@ class CreateMediopagosEmpresasTable extends Migration {
 		});
 
         Schema::table('mediopagos_empresas', function (Blueprint $table) {
-            $table->foreignId('empresa_id')->constrained()->after('id');
+            $table->foreignId('empresa_id')
+                ->constrained()
+                ->after('id');
         });
 
         Schema::table('mediopagos_empresas', function (Blueprint $table) {
-            $table->foreignId('mediopago_id')->constrained()->after('empresa_id');
+            $table->foreignId('mediopago_id')
+                ->constrained()
+                ->after('empresa_id');
         });
 	}
 

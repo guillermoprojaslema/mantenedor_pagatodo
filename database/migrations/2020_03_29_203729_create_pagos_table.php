@@ -16,22 +16,40 @@ class CreatePagosTable extends Migration
     {
         Schema::create('pagos', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('fecha')->nullable();
-            $table->float('monto', 10, 0)->nullable();
-            $table->string('numero_recibo', 100)->nullable();
-            $table->string('numero_mediopago', 100)->nullable();
-            $table->string('observacion', 300)->nullable();
-            $table->string('tipo', 100)->nullable();
-            $table->string('extras', 300)->nullable();
-            $table->integer('intento_pago')->nullable();
-            $table->boolean('reimpresion')->nullable()->default(0);
-            $table->integer('tiempo')->nullable();
-            $table->integer('tiempo_real')->nullable();
-            $table->string('validador_web_service', 20)->nullable();
-            $table->boolean('pago_express')->nullable()->default(0);
-            $table->boolean('sumar')->nullable();
-            $table->float('tiempo_respuesta_ws', 10, 0)->nullable();
-            $table->string('error', 400)->nullable();
+            $table->dateTime('fecha')
+                ->nullable();
+            $table->float('monto', 10, 0)
+                ->nullable();
+            $table->string('numero_recibo', 100)
+                ->nullable();
+            $table->string('numero_mediopago', 100)
+                ->nullable();
+            $table->string('observacion', 300)
+                ->nullable();
+            $table->string('tipo', 100)
+                ->nullable();
+            $table->string('extras', 300)
+                ->nullable();
+            $table->integer('intento_pago')
+                ->nullable();
+            $table->boolean('reimpresion')
+                ->nullable()
+                ->default(0);
+            $table->integer('tiempo')
+                ->nullable();
+            $table->integer('tiempo_real')
+                ->nullable();
+            $table->string('validador_web_service', 20)
+                ->nullable();
+            $table->boolean('pago_express')
+                ->nullable()
+                ->default(0);
+            $table->boolean('sumar')
+                ->nullable();
+            $table->float('tiempo_respuesta_ws', 10, 0)
+                ->nullable();
+            $table->string('error', 400)
+                ->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
