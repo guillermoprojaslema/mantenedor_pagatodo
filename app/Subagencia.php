@@ -3,25 +3,28 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @property integer $id
- * @property integer $sucursal_id
- * @property float $saldo_actual
- * @property float $saldo_total
- * @property boolean $activable
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
- * @property Sucursale $sucursale
- * @property SubagenciaLog[] $subagenciaLogs
+ * @property integer          $id
+ * @property integer          $sucursal_id
+ * @property float            $saldo_actual
+ * @property float            $saldo_total
+ * @property boolean          $activable
+ * @property string           $created_at
+ * @property string           $updated_at
+ * @property string           $deleted_at
+ * @property Sucursale        $sucursale
+ * @property SubagenciaLog[]  $subagenciaLogs
  * @property SubagenciaPago[] $subagenciaPagos
  */
 class Subagencia extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -29,7 +32,15 @@ class Subagencia extends Model
     /**
      * @var array
      */
-    protected $fillable = ['sucursal_id', 'saldo_actual', 'saldo_total', 'activable', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'sucursal_id',
+        'saldo_actual',
+        'saldo_total',
+        'activable',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

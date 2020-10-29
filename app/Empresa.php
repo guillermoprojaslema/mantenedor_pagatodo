@@ -3,66 +3,69 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @property integer $id
- * @property integer $categoriaempresa_id
- * @property string $nombre
- * @property string $funcion
- * @property integer $pago_parcial
- * @property integer $pago_abono
- * @property string $contacto_nombre
- * @property string $contacto_fono
- * @property boolean $opcion_numero_recibo
- * @property boolean $opcion_observacion
- * @property boolean $opcion_numero_cliente
- * @property string $impresion_layout
- * @property boolean $recarga_fija
- * @property boolean $opcion_cedula
- * @property boolean $activo
- * @property string $email
- * @property int $visa_id
- * @property string $imagen
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
- * @property Categoriaempresa $categoriaempresa
- * @property CargoPorServicio[] $cargoPorServicios
- * @property Cedula[] $cedulas
- * @property Cedulasciti[] $cedulascitis
- * @property Cobro[] $cobros
- * @property ComisionesEmpresa[] $comisionesEmpresas
- * @property ComisionesRecaudadora[] $comisionesRecaudadoras
- * @property Contadore[] $contadores
- * @property Cuenta[] $cuentas
- * @property DepositValue[] $depositValues
- * @property Empleado[] $empleados
- * @property EmployeePartner[] $employeePartners
- * @property EmpresasOpcionesrecarga[] $empresasOpcionesrecargas
- * @property Historicocobro[] $historicocobros
+ * @property integer                      $id
+ * @property integer                      $categoriaempresa_id
+ * @property string                       $nombre
+ * @property string                       $funcion
+ * @property integer                      $pago_parcial
+ * @property integer                      $pago_abono
+ * @property string                       $contacto_nombre
+ * @property string                       $contacto_fono
+ * @property boolean                      $opcion_numero_recibo
+ * @property boolean                      $opcion_observacion
+ * @property boolean                      $opcion_numero_cliente
+ * @property string                       $impresion_layout
+ * @property boolean                      $recarga_fija
+ * @property boolean                      $opcion_cedula
+ * @property boolean                      $activo
+ * @property string                       $email
+ * @property int                          $visa_id
+ * @property string                       $imagen
+ * @property string                       $created_at
+ * @property string                       $updated_at
+ * @property string                       $deleted_at
+ * @property Categoriaempresa             $categoriaempresa
+ * @property CargoPorServicio[]           $cargoPorServicios
+ * @property Cedula[]                     $cedulas
+ * @property Cedulasciti[]                $cedulascitis
+ * @property Cobro[]                      $cobros
+ * @property ComisionesEmpresa[]          $comisionesEmpresas
+ * @property ComisionesRecaudadora[]      $comisionesRecaudadoras
+ * @property Contadore[]                  $contadores
+ * @property Cuenta[]                     $cuentas
+ * @property DepositValue[]               $depositValues
+ * @property Empleado[]                   $empleados
+ * @property EmployeePartner[]            $employeePartners
+ * @property EmpresasOpcionesrecarga[]    $empresasOpcionesrecargas
+ * @property Historicocobro[]             $historicocobros
  * @property IdentificadorcobrosEmpresa[] $identificadorcobrosEmpresas
- * @property Intranetranking[] $intranetrankings
- * @property LogPartner[] $logPartners
- * @property MediopagosEmpresa[] $mediopagosEmpresas
- * @property Oficina[] $oficinas
- * @property Pago[] $pagos
- * @property Pagosbk[] $pagosbks
- * @property PartnerItem[] $partnerItems
- * @property PaymentsAmount[] $paymentsAmounts
- * @property Promocione[] $promociones
- * @property QueueSetting[] $queueSettings
- * @property Recarga[] $recargas
- * @property RecaudadorasEmpresa[] $recaudadorasEmpresas
- * @property ResponseMessage[] $responseMessages
+ * @property Intranetranking[]            $intranetrankings
+ * @property LogPartner[]                 $logPartners
+ * @property MediopagosEmpresa[]          $mediopagosEmpresas
+ * @property Oficina[]                    $oficinas
+ * @property Pago[]                       $pagos
+ * @property Pagosbk[]                    $pagosbks
+ * @property PartnerItem[]                $partnerItems
+ * @property PaymentsAmount[]             $paymentsAmounts
+ * @property Promocione[]                 $promociones
+ * @property QueueSetting[]               $queueSettings
+ * @property Recarga[]                    $recargas
+ * @property RecaudadorasEmpresa[]        $recaudadorasEmpresas
+ * @property ResponseMessage[]            $responseMessages
  * @property ResponseMessagesWebservice[] $responseMessagesWebservices
- * @property Seguro[] $seguros
- * @property ServiciosEmpresa[] $serviciosEmpresas
+ * @property Seguro[]                     $seguros
+ * @property ServiciosEmpresa[]           $serviciosEmpresas
  */
 class Empresa extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -70,7 +73,28 @@ class Empresa extends Model
     /**
      * @var array
      */
-    protected $fillable = ['categoriaempresa_id', 'nombre', 'funcion', 'pago_parcial', 'pago_abono', 'contacto_nombre', 'contacto_fono', 'opcion_numero_recibo', 'opcion_observacion', 'opcion_numero_cliente', 'impresion_layout', 'recarga_fija', 'opcion_cedula', 'activo', 'email', 'visa_id', 'imagen', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'categoriaempresa_id',
+        'nombre',
+        'funcion',
+        'pago_parcial',
+        'pago_abono',
+        'contacto_nombre',
+        'contacto_fono',
+        'opcion_numero_recibo',
+        'opcion_observacion',
+        'opcion_numero_cliente',
+        'impresion_layout',
+        'recarga_fija',
+        'opcion_cedula',
+        'activo',
+        'email',
+        'visa_id',
+        'imagen',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -3,22 +3,25 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $partner_id
- * @property int $id
- * @property int $code
- * @property string $message
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
+ * @property int     $id
+ * @property int     $code
+ * @property string  $message
+ * @property string  $created_at
+ * @property string  $updated_at
+ * @property string  $deleted_at
  * @property Empresa $empresa
  */
 class ResponseMessageWebservice extends Model
 {
+    use SoftDeletes;
+
     /**
      * The table associated with the model.
-     * 
+     *
      * @var string
      */
     protected $table = 'response_messages_webservice';

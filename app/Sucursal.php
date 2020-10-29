@@ -3,60 +3,64 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @property integer $id
- * @property integer $recaudadora_id
- * @property string $nombre
- * @property string $numero
- * @property string $direccion
- * @property string $codigo
- * @property boolean $impresora_carta
- * @property boolean $impresora_termica
- * @property string $telefono
- * @property string $ciudad
- * @property string $provincia
- * @property string $contacto
- * @property string $cedula_rnc
- * @property string $nombre_legal
- * @property string $observaciones
- * @property boolean $pago_rapido
- * @property boolean $cashout
- * @property boolean $acepta_dolar
- * @property string $id_gp
- * @property boolean $activo
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
- * @property Recaudadora $recaudadora
- * @property CashoutCobro[] $cashoutCobros
- * @property CashoutPago[] $cashoutPagos
- * @property CobrosSucursale[] $cobrosSucursales
- * @property DepositValue[] $depositValues
- * @property Empleado[] $empleados
- * @property Historicocobro[] $historicocobros
- * @property MediopagosSucursale[] $mediopagosSucursales
- * @property Mercadeo[] $mercadeos
- * @property Pago[] $pagos
- * @property Pagosbk[] $pagosbks
+ * @property integer                $id
+ * @property integer                $recaudadora_id
+ * @property string                 $nombre
+ * @property string                 $numero
+ * @property string                 $direccion
+ * @property string                 $codigo
+ * @property boolean                $impresora_carta
+ * @property boolean                $impresora_termica
+ * @property string                 $telefono
+ * @property string                 $ciudad
+ * @property string                 $provincia
+ * @property string                 $contacto
+ * @property string                 $cedula_rnc
+ * @property string                 $nombre_legal
+ * @property string                 $observaciones
+ * @property boolean                $pago_rapido
+ * @property boolean                $cashout
+ * @property boolean                $acepta_dolar
+ * @property string                 $id_gp
+ * @property boolean                $activo
+ * @property string                 $created_at
+ * @property string                 $updated_at
+ * @property string                 $deleted_at
+ * @property Recaudadora            $recaudadora
+ * @property CashoutCobro[]         $cashoutCobros
+ * @property CashoutPago[]          $cashoutPagos
+ * @property CobrosSucursale[]      $cobrosSucursales
+ * @property DepositValue[]         $depositValues
+ * @property Empleado[]             $empleados
+ * @property Historicocobro[]       $historicocobros
+ * @property MediopagosSucursale[]  $mediopagosSucursales
+ * @property Mercadeo[]             $mercadeos
+ * @property Pago[]                 $pagos
+ * @property Pagosbk[]              $pagosbks
  * @property PaymentAuthorization[] $paymentAuthorizations
- * @property QueueSetting[] $queueSettings
- * @property Recarga[] $recargas
- * @property Subagencia[] $subagencias
- * @property SucursalesSeguro[] $sucursalesSeguros
+ * @property QueueSetting[]         $queueSettings
+ * @property Recarga[]              $recargas
+ * @property Subagencia[]           $subagencias
+ * @property SucursalesSeguro[]     $sucursalesSeguros
  */
 class Sucursal extends Model
 {
+    use SoftDeletes;
+
+    use SoftDeletes;
     /**
      * The table associated with the model.
-     * 
+     *
      * @var string
      */
     protected $table = 'sucursales';
 
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -64,7 +68,30 @@ class Sucursal extends Model
     /**
      * @var array
      */
-    protected $fillable = ['recaudadora_id', 'nombre', 'numero', 'direccion', 'codigo', 'impresora_carta', 'impresora_termica', 'telefono', 'ciudad', 'provincia', 'contacto', 'cedula_rnc', 'nombre_legal', 'observaciones', 'pago_rapido', 'cashout', 'acepta_dolar', 'id_gp', 'activo', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'recaudadora_id',
+        'nombre',
+        'numero',
+        'direccion',
+        'codigo',
+        'impresora_carta',
+        'impresora_termica',
+        'telefono',
+        'ciudad',
+        'provincia',
+        'contacto',
+        'cedula_rnc',
+        'nombre_legal',
+        'observaciones',
+        'pago_rapido',
+        'cashout',
+        'acepta_dolar',
+        'id_gp',
+        'activo',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

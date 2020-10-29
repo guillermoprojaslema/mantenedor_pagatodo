@@ -3,20 +3,23 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @property integer $id
- * @property string $nombre
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
+ * @property integer   $id
+ * @property string    $nombre
+ * @property string    $created_at
+ * @property string    $updated_at
+ * @property string    $deleted_at
  * @property Campana[] $campanas
  */
 class Estadocampanas extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';

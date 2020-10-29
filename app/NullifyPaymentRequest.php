@@ -3,21 +3,24 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
  * @property integer $payment_id
- * @property string $request_date
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
- * @property Pago $pago
+ * @property string  $request_date
+ * @property string  $created_at
+ * @property string  $updated_at
+ * @property string  $deleted_at
+ * @property Pago    $pago
  */
 class NullifyPaymentRequest extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';

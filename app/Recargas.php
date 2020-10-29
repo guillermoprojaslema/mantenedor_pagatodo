@@ -3,38 +3,41 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @property integer $id
- * @property integer $empleado_id
- * @property integer $sucursal_id
- * @property integer $empresa_id
- * @property integer $tipopago_id
- * @property integer $mediopago_id
- * @property integer $estadopago_id
- * @property integer $moneda_id
- * @property float $monto
- * @property string $numero_recibo
- * @property string $numero_mediopago
- * @property string $observacion
- * @property string $numero_recarga
- * @property integer $extras
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
- * @property Empleado $empleado
- * @property Empresa $empresa
+ * @property integer    $id
+ * @property integer    $empleado_id
+ * @property integer    $sucursal_id
+ * @property integer    $empresa_id
+ * @property integer    $tipopago_id
+ * @property integer    $mediopago_id
+ * @property integer    $estadopago_id
+ * @property integer    $moneda_id
+ * @property float      $monto
+ * @property string     $numero_recibo
+ * @property string     $numero_mediopago
+ * @property string     $observacion
+ * @property string     $numero_recarga
+ * @property integer    $extras
+ * @property string     $created_at
+ * @property string     $updated_at
+ * @property string     $deleted_at
+ * @property Empleado   $empleado
+ * @property Empresa    $empresa
  * @property Estadopago $estadopago
- * @property Mediopago $mediopago
- * @property Moneda $moneda
- * @property Sucursale $sucursale
- * @property Tipopago $tipopago
+ * @property Mediopago  $mediopago
+ * @property Moneda     $moneda
+ * @property Sucursale  $sucursale
+ * @property Tipopago   $tipopago
  */
 class Recargas extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -42,7 +45,24 @@ class Recargas extends Model
     /**
      * @var array
      */
-    protected $fillable = ['empleado_id', 'sucursal_id', 'empresa_id', 'tipopago_id', 'mediopago_id', 'estadopago_id', 'moneda_id', 'monto', 'numero_recibo', 'numero_mediopago', 'observacion', 'numero_recarga', 'extras', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'empleado_id',
+        'sucursal_id',
+        'empresa_id',
+        'tipopago_id',
+        'mediopago_id',
+        'estadopago_id',
+        'moneda_id',
+        'monto',
+        'numero_recibo',
+        'numero_mediopago',
+        'observacion',
+        'numero_recarga',
+        'extras',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -3,24 +3,27 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
  * @property integer $partner_id
- * @property string $request
- * @property string $response
- * @property string $requested_url
- * @property string $requested_method
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
+ * @property string  $request
+ * @property string  $response
+ * @property string  $requested_url
+ * @property string  $requested_method
+ * @property string  $created_at
+ * @property string  $updated_at
+ * @property string  $deleted_at
  * @property Empresa $empresa
  */
 class LogPartner extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -28,7 +31,16 @@ class LogPartner extends Model
     /**
      * @var array
      */
-    protected $fillable = ['partner_id', 'request', 'response', 'requested_url', 'requested_method', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'partner_id',
+        'request',
+        'response',
+        'requested_url',
+        'requested_method',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

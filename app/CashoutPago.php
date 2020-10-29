@@ -3,37 +3,40 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @property integer $id
- * @property integer $cashout_cobro_id
- * @property integer $empleado_id
- * @property integer $sucursal_id
- * @property integer $cashout_empresa_id
- * @property integer $estadopago_id
- * @property integer $cashout_nomina_id
- * @property string $fecha
- * @property float $monto
- * @property int $numero_recibo
- * @property string $extras
- * @property string $cedula
- * @property string $cliente_nombre
- * @property string $tipo
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
- * @property CashoutCobro $cashoutCobro
+ * @property integer        $id
+ * @property integer        $cashout_cobro_id
+ * @property integer        $empleado_id
+ * @property integer        $sucursal_id
+ * @property integer        $cashout_empresa_id
+ * @property integer        $estadopago_id
+ * @property integer        $cashout_nomina_id
+ * @property string         $fecha
+ * @property float          $monto
+ * @property int            $numero_recibo
+ * @property string         $extras
+ * @property string         $cedula
+ * @property string         $cliente_nombre
+ * @property string         $tipo
+ * @property string         $created_at
+ * @property string         $updated_at
+ * @property string         $deleted_at
+ * @property CashoutCobro   $cashoutCobro
  * @property CashoutEmpresa $cashoutEmpresa
- * @property CashoutNomina $cashoutNomina
- * @property Empleado $empleado
- * @property Estadopago $estadopago
- * @property Sucursale $sucursale
+ * @property CashoutNomina  $cashoutNomina
+ * @property Empleado       $empleado
+ * @property Estadopago     $estadopago
+ * @property Sucursale      $sucursale
  */
 class CashoutPago extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -41,7 +44,24 @@ class CashoutPago extends Model
     /**
      * @var array
      */
-    protected $fillable = ['cashout_cobro_id', 'empleado_id', 'sucursal_id', 'cashout_empresa_id', 'estadopago_id', 'cashout_nomina_id', 'fecha', 'monto', 'numero_recibo', 'extras', 'cedula', 'cliente_nombre', 'tipo', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'cashout_cobro_id',
+        'empleado_id',
+        'sucursal_id',
+        'cashout_empresa_id',
+        'estadopago_id',
+        'cashout_nomina_id',
+        'fecha',
+        'monto',
+        'numero_recibo',
+        'extras',
+        'cedula',
+        'cliente_nombre',
+        'tipo',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

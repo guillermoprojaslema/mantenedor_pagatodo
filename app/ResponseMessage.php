@@ -3,22 +3,25 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
  * @property integer $partner_id
- * @property int $code
- * @property string $message
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
+ * @property int     $code
+ * @property string  $message
+ * @property string  $created_at
+ * @property string  $updated_at
+ * @property string  $deleted_at
  * @property Empresa $empresa
  */
 class ResponseMessage extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';

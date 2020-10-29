@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
@@ -19,9 +20,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Intranetarchivos extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -29,7 +32,17 @@ class Intranetarchivos extends Model
     /**
      * @var array
      */
-    protected $fillable = ['empleado_id', 'nombre', 'tipo', 'tamano', 'descripcion', 'ext', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'empleado_id',
+        'nombre',
+        'tipo',
+        'tamano',
+        'descripcion',
+        'ext',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

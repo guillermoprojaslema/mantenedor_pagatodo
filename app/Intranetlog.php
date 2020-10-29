@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
@@ -18,9 +19,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Intranetlog extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -28,7 +31,16 @@ class Intranetlog extends Model
     /**
      * @var array
      */
-    protected $fillable = ['empleado_id', 'origen', 'ip', 'sucursal_id', 'fecha', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'empleado_id',
+        'origen',
+        'ip',
+        'sucursal_id',
+        'fecha',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

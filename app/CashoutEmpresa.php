@@ -3,29 +3,32 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @property integer $id
- * @property string $nombre
- * @property string $password
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
- * @property CargoPorServicio[] $cargoPorServicios
- * @property CashoutCobro[] $cashoutCobros
- * @property CashoutNomina[] $cashoutNominas
- * @property CashoutPago[] $cashoutPagos
- * @property ComisionesEmpresa[] $comisionesEmpresas
- * @property ComisionesRecaudadora[] $comisionesRecaudadoras
- * @property Empleado[] $empleados
+ * @property integer                      $id
+ * @property string                       $nombre
+ * @property string                       $password
+ * @property string                       $created_at
+ * @property string                       $updated_at
+ * @property string                       $deleted_at
+ * @property CargoPorServicio[]           $cargoPorServicios
+ * @property CashoutCobro[]               $cashoutCobros
+ * @property CashoutNomina[]              $cashoutNominas
+ * @property CashoutPago[]                $cashoutPagos
+ * @property ComisionesEmpresa[]          $comisionesEmpresas
+ * @property ComisionesRecaudadora[]      $comisionesRecaudadoras
+ * @property Empleado[]                   $empleados
  * @property RecaudadorasCashoutEmpresa[] $recaudadorasCashoutEmpresas
- * @property ServiciosCashoutEmpresa[] $serviciosCashoutEmpresas
+ * @property ServiciosCashoutEmpresa[]    $serviciosCashoutEmpresas
  */
 class CashoutEmpresa extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
@@ -23,16 +24,18 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Promocion extends Model
 {
+    use SoftDeletes;
+
     /**
      * The table associated with the model.
-     * 
+     *
      * @var string
      */
     protected $table = 'promociones';
 
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -40,7 +43,20 @@ class Promocion extends Model
     /**
      * @var array
      */
-    protected $fillable = ['empresa_id', 'nombre', 'fecha_desde', 'fecha_hasta', 'contador_pagos', 'premios', 'contador_premios', 'descripcion', 'monto', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'empresa_id',
+        'nombre',
+        'fecha_desde',
+        'fecha_hasta',
+        'contador_pagos',
+        'premios',
+        'contador_premios',
+        'descripcion',
+        'monto',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

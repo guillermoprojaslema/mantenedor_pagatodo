@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
@@ -21,9 +22,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Cuenta extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -31,7 +34,17 @@ class Cuenta extends Model
     /**
      * @var array
      */
-    protected $fillable = ['cliente_id', 'empresa_id', 'empleado_id', 'cuenta', 'tipobusqueda', 'fecha_notificacion', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'cliente_id',
+        'empresa_id',
+        'empleado_id',
+        'cuenta',
+        'tipobusqueda',
+        'fecha_notificacion',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

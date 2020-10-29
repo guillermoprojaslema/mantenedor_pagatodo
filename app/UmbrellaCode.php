@@ -3,22 +3,25 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
  * @property integer $payment_id
- * @property string $code_id
+ * @property string  $code_id
  * @property boolean $status
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
- * @property Pago $pago
+ * @property string  $created_at
+ * @property string  $updated_at
+ * @property string  $deleted_at
+ * @property Pago    $pago
  */
 class UmbrellaCode extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';

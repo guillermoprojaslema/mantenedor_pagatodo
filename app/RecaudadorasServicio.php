@@ -3,22 +3,25 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @property integer $id
- * @property integer $recaudadora_id
- * @property integer $servicio_id
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
+ * @property integer     $id
+ * @property integer     $recaudadora_id
+ * @property integer     $servicio_id
+ * @property string      $created_at
+ * @property string      $updated_at
+ * @property string      $deleted_at
  * @property Recaudadora $recaudadora
- * @property Servicio $servicio
+ * @property Servicio    $servicio
  */
 class RecaudadorasServicio extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';

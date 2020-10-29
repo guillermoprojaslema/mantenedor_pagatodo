@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
@@ -23,9 +24,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class PidihPersona extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -33,7 +36,21 @@ class PidihPersona extends Model
     /**
      * @var array
      */
-    protected $fillable = ['identificacion_tipo', 'identificacion_codigo', 'nombre_completo', 'nacionalidad', 'cedula', 'tipo_documento', 'fecha_entrada', 'distrito', 'fecha_nacimiento', 'mntn', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'identificacion_tipo',
+        'identificacion_codigo',
+        'nombre_completo',
+        'nacionalidad',
+        'cedula',
+        'tipo_documento',
+        'fecha_entrada',
+        'distrito',
+        'fecha_nacimiento',
+        'mntn',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

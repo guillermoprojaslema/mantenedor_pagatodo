@@ -3,25 +3,28 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @property integer $id
- * @property integer $estadocampana_id
- * @property string $nombre
- * @property string $umbrella
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
- * @property Estadocampana $estadocampana
- * @property Mercadeo[] $mercadeos
- * @property Noticia[] $noticias
+ * @property integer           $id
+ * @property integer           $estadocampana_id
+ * @property string            $nombre
+ * @property string            $umbrella
+ * @property string            $created_at
+ * @property string            $updated_at
+ * @property string            $deleted_at
+ * @property Estadocampanas    $estadocampana
+ * @property Mercadeo[]        $mercadeos
+ * @property Noticia[]         $noticias
  * @property Umbrellaranking[] $umbrellarankings
  */
 class Campana extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -36,7 +39,7 @@ class Campana extends Model
      */
     public function estadocampana()
     {
-        return $this->belongsTo('App\Estadocampana');
+        return $this->belongsTo('App\Estadocampanas');
     }
 
     /**

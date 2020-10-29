@@ -3,29 +3,32 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @property integer $id
- * @property integer $sucursal_id
- * @property integer $mediopago_id
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
+ * @property integer   $id
+ * @property integer   $sucursal_id
+ * @property integer   $mediopago_id
+ * @property string    $created_at
+ * @property string    $updated_at
+ * @property string    $deleted_at
  * @property Mediopago $mediopago
  * @property Sucursale $sucursale
  */
 class MediopagosSucursal extends Model
 {
+    use SoftDeletes;
+
     /**
      * The table associated with the model.
-     * 
+     *
      * @var string
      */
     protected $table = 'mediopagos_sucursales';
 
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';

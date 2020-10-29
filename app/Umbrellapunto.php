@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
@@ -23,9 +24,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Umbrellapunto extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -33,7 +36,21 @@ class Umbrellapunto extends Model
     /**
      * @var array
      */
-    protected $fillable = ['umbrellacliente_id', 'tipo_1', 'tipo_2', 'tipo_3', 'tipo_4', 'tipo_5', 'fecha_inicio', 'fecha_termino', 'estado', 'tipo_6', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'umbrellacliente_id',
+        'tipo_1',
+        'tipo_2',
+        'tipo_3',
+        'tipo_4',
+        'tipo_5',
+        'fecha_inicio',
+        'fecha_termino',
+        'estado',
+        'tipo_6',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

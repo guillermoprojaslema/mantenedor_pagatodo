@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
@@ -22,9 +23,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Mercadeo extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -32,7 +35,18 @@ class Mercadeo extends Model
     /**
      * @var array
      */
-    protected $fillable = ['recaudadora_id', 'sucursal_id', 'campana_id', 'meta_pago', 'meta_recarga', 'fecha_desde', 'fecha_hasta', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'recaudadora_id',
+        'sucursal_id',
+        'campana_id',
+        'meta_pago',
+        'meta_recarga',
+        'fecha_desde',
+        'fecha_hasta',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

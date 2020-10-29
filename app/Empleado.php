@@ -3,52 +3,55 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @property integer $id
- * @property integer $sucursal_id
- * @property integer $grupo_id
- * @property integer $estado_id
- * @property integer $empresa_id
- * @property integer $cashout_empresa_id
- * @property string $nombre
- * @property string $cedula
- * @property string $codigo
- * @property string $usuario
- * @property string $password
- * @property string $terminal
- * @property string $tokenId
- * @property boolean $es_virtual
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
- * @property CashoutEmpresa $cashoutEmpresa
- * @property Empresa $empresa
- * @property Estado $estado
- * @property Grupo $grupo
- * @property Sucursale $sucursale
- * @property CashoutLog[] $cashoutLogs
- * @property CashoutPago[] $cashoutPagos
- * @property Cuenta[] $cuentas
- * @property EmployeePartner[] $employeePartners
- * @property EmployeePassword[] $employeePasswords
- * @property Intranetarchivo[] $intranetarchivos
+ * @property integer             $id
+ * @property integer             $sucursal_id
+ * @property integer             $grupo_id
+ * @property integer             $estado_id
+ * @property integer             $empresa_id
+ * @property integer             $cashout_empresa_id
+ * @property string              $nombre
+ * @property string              $cedula
+ * @property string              $codigo
+ * @property string              $usuario
+ * @property string              $password
+ * @property string              $terminal
+ * @property string              $tokenId
+ * @property boolean             $es_virtual
+ * @property string              $created_at
+ * @property string              $updated_at
+ * @property string              $deleted_at
+ * @property CashoutEmpresa      $cashoutEmpresa
+ * @property Empresa             $empresa
+ * @property Estado              $estado
+ * @property Grupo               $grupo
+ * @property Sucursale           $sucursale
+ * @property CashoutLog[]        $cashoutLogs
+ * @property CashoutPago[]       $cashoutPagos
+ * @property Cuenta[]            $cuentas
+ * @property EmployeePartner[]   $employeePartners
+ * @property EmployeePassword[]  $employeePasswords
+ * @property Intranetarchivo[]   $intranetarchivos
  * @property Intranetincentivo[] $intranetincentivos
- * @property Intranetlog[] $intranetlogs
- * @property Intranetnoticia[] $intranetnoticias
- * @property Intranetranking[] $intranetrankings
- * @property Log[] $logs
- * @property Logs1[] $logs1s
- * @property Pago[] $pagos
- * @property Pagosbk[] $pagosbks
- * @property Ranking[] $rankings
- * @property Recarga[] $recargas
+ * @property Intranetlog[]       $intranetlogs
+ * @property Intranetnoticia[]   $intranetnoticias
+ * @property Intranetranking[]   $intranetrankings
+ * @property Log[]               $logs
+ * @property Logs1[]             $logs1s
+ * @property Pago[]              $pagos
+ * @property Pagosbk[]           $pagosbks
+ * @property Ranking[]           $rankings
+ * @property Recarga[]           $recargas
  */
 class Empleado extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -56,7 +59,24 @@ class Empleado extends Model
     /**
      * @var array
      */
-    protected $fillable = ['sucursal_id', 'grupo_id', 'estado_id', 'empresa_id', 'cashout_empresa_id', 'nombre', 'cedula', 'codigo', 'usuario', 'password', 'terminal', 'tokenId', 'es_virtual', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'sucursal_id',
+        'grupo_id',
+        'estado_id',
+        'empresa_id',
+        'cashout_empresa_id',
+        'nombre',
+        'cedula',
+        'codigo',
+        'usuario',
+        'password',
+        'terminal',
+        'tokenId',
+        'es_virtual',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -3,21 +3,24 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
- * @property string $input
- * @property string $output
- * @property string $url
- * @property string $payload
- * @property string $created_at
- * @property string $updated_at
+ * @property string  $input
+ * @property string  $output
+ * @property string  $url
+ * @property string  $payload
+ * @property string  $created_at
+ * @property string  $updated_at
  */
 class LogsWs extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';

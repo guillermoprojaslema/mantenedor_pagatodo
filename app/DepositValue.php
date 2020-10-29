@@ -3,25 +3,28 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @property integer $id
- * @property integer $branch_id
- * @property integer $partner_id
- * @property integer $deposit_setting_id
- * @property boolean $just_virtual_employees
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
- * @property Sucursale $sucursale
+ * @property integer        $id
+ * @property integer        $branch_id
+ * @property integer        $partner_id
+ * @property integer        $deposit_setting_id
+ * @property boolean        $just_virtual_employees
+ * @property string         $created_at
+ * @property string         $updated_at
+ * @property string         $deleted_at
+ * @property Sucursale      $sucursale
  * @property DepositSetting $depositSetting
- * @property Empresa $empresa
+ * @property Empresa        $empresa
  */
 class DepositValue extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -29,7 +32,15 @@ class DepositValue extends Model
     /**
      * @var array
      */
-    protected $fillable = ['branch_id', 'partner_id', 'deposit_setting_id', 'just_virtual_employees', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'branch_id',
+        'partner_id',
+        'deposit_setting_id',
+        'just_virtual_employees',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

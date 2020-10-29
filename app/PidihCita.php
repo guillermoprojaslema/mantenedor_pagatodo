@@ -3,25 +3,28 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @property integer $id
- * @property integer $persona_id
- * @property integer $pago_id
- * @property integer $oficina_id
- * @property string $fecha
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
- * @property Oficina $oficina
- * @property Pago $pago
+ * @property integer      $id
+ * @property integer      $persona_id
+ * @property integer      $pago_id
+ * @property integer      $oficina_id
+ * @property string       $fecha
+ * @property string       $created_at
+ * @property string       $updated_at
+ * @property string       $deleted_at
+ * @property Oficina      $oficina
+ * @property Pago         $pago
  * @property PidihPersona $pidihPersona
  */
 class PidihCita extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';

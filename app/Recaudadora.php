@@ -3,31 +3,34 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @property integer $id
- * @property string $nombre
- * @property string $fono_contacto
- * @property string $nombre_contacto
- * @property string $numero
- * @property string $dominio
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
- * @property CargoPorServicio[] $cargoPorServicios
- * @property ComisionesRecaudadora[] $comisionesRecaudadoras
- * @property CompanyTheme[] $companyThemes
- * @property Mercadeo[] $mercadeos
+ * @property integer                      $id
+ * @property string                       $nombre
+ * @property string                       $fono_contacto
+ * @property string                       $nombre_contacto
+ * @property string                       $numero
+ * @property string                       $dominio
+ * @property string                       $created_at
+ * @property string                       $updated_at
+ * @property string                       $deleted_at
+ * @property CargoPorServicio[]           $cargoPorServicios
+ * @property ComisionesRecaudadora[]      $comisionesRecaudadoras
+ * @property CompanyTheme[]               $companyThemes
+ * @property Mercadeo[]                   $mercadeos
  * @property RecaudadorasCashoutEmpresa[] $recaudadorasCashoutEmpresas
- * @property RecaudadorasEmpresa[] $recaudadorasEmpresas
- * @property RecaudadorasServicio[] $recaudadorasServicios
- * @property Sucursale[] $sucursales
+ * @property RecaudadorasEmpresa[]        $recaudadorasEmpresas
+ * @property RecaudadorasServicio[]       $recaudadorasServicios
+ * @property Sucursale[]                  $sucursales
  */
 class Recaudadora extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -35,7 +38,16 @@ class Recaudadora extends Model
     /**
      * @var array
      */
-    protected $fillable = ['nombre', 'fono_contacto', 'nombre_contacto', 'numero', 'dominio', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'nombre',
+        'fono_contacto',
+        'nombre_contacto',
+        'numero',
+        'dominio',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

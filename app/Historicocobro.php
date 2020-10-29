@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
@@ -32,9 +33,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Historicocobro extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -42,7 +45,27 @@ class Historicocobro extends Model
     /**
      * @var array
      */
-    protected $fillable = ['empresa_id', 'parent_id', 'servicio_id', 'moneda_id', 'cliente_cedula', 'cliente_numero', 'fecha_emision', 'fecha_vencimiento', 'valor_minimo', 'valor_total', 'valor_multa', 'tipo', 'numero_boleta_factura', 'cliente_nombre', 'extras', 'datos_visa', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'empresa_id',
+        'parent_id',
+        'servicio_id',
+        'moneda_id',
+        'cliente_cedula',
+        'cliente_numero',
+        'fecha_emision',
+        'fecha_vencimiento',
+        'valor_minimo',
+        'valor_total',
+        'valor_multa',
+        'tipo',
+        'numero_boleta_factura',
+        'cliente_nombre',
+        'extras',
+        'datos_visa',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property integer $id
@@ -23,9 +24,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class CashoutNomina extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
@@ -33,7 +36,19 @@ class CashoutNomina extends Model
     /**
      * @var array
      */
-    protected $fillable = ['cashout_empresa_id', 'monto', 'validacion', 'cantidad', 'fecha', 'observacion', 'extras', 'descripcion', 'created_at', 'updated_at', 'deleted_at'];
+    protected $fillable = [
+        'cashout_empresa_id',
+        'monto',
+        'validacion',
+        'cantidad',
+        'fecha',
+        'observacion',
+        'extras',
+        'descripcion',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

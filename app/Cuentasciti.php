@@ -3,23 +3,26 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @property integer $id
- * @property integer $cedulasciti_id
- * @property integer $moneda_id
- * @property string $numero_cuenta
- * @property string $created_at
- * @property string $updated_at
- * @property string $deleted_at
+ * @property integer     $id
+ * @property integer     $cedulasciti_id
+ * @property integer     $moneda_id
+ * @property string      $numero_cuenta
+ * @property string      $created_at
+ * @property string      $updated_at
+ * @property string      $deleted_at
  * @property Cedulasciti $cedulasciti
- * @property Moneda $moneda
+ * @property Moneda      $moneda
  */
 class Cuentasciti extends Model
 {
+    use SoftDeletes;
+
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
