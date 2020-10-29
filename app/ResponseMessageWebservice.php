@@ -1,0 +1,38 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+/**
+ * @property integer $partner_id
+ * @property int $id
+ * @property int $code
+ * @property string $message
+ * @property string $created_at
+ * @property string $updated_at
+ * @property string $deleted_at
+ * @property Empresa $empresa
+ */
+class ResponseMessageWebservice extends Model
+{
+    /**
+     * The table associated with the model.
+     * 
+     * @var string
+     */
+    protected $table = 'response_messages_webservice';
+
+    /**
+     * @var array
+     */
+    protected $fillable = ['partner_id', 'id', 'code', 'message', 'created_at', 'updated_at', 'deleted_at'];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function empresa()
+    {
+        return $this->belongsTo('App\Empresa', 'partner_id');
+    }
+}
